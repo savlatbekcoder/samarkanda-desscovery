@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Sora", serif;
+}
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.section-title {
+  font-size: 32px;
+}
+
+.distinations {
+  margin: 40px 0;
+}
+
+.about_txt {
+  background: #000;
+  color: #fff;
+
+  div {
+    max-width: 600px;
+    padding: 40px 0;
+    margin: 0 auto;
+  }
+}
+
+.swiper-pagination {
+  margin-bottom: -10px !important;
+}
+
+.desti-card {
+  transition: 0.3s all;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  user-select: none;
+  height: 280px;
+  background-size: cover;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  padding: 10px;
+  img {
+    width: 100%;
+    height: 320px !important;
+    object-fit: cover;
+  }
+}
+
+.desti-card:hover {
+  transform: scale(1.05);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.tour-card {
+  transition: 0.3s all;
+  border: 1px solid #ccc;
+  .card-price {
+    display: inline-block;
+    padding: 10px;
+    margin-top: 250px;
+    background: red;
+    color: #fff;
+  }
+}
+
+.tour-card:hover {
+  transform: scale(1.05);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.tour-body {
+  padding: 10px;
+}
+
+.tour-header {
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+}
+
+.tour-row {
+  display: flex;
+  justify-content: space-between !important;
+  align-items: end !important;
+  margin-top: 10px;
+  gap: 20px;
+  p:first-child {
+    font-size: 32px;
+  }
+  p:last-child {
+    font-size: 17px;
+    text-align: end;
+  }
+}
+
+.tours-page-row {
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 850px) {
+  .tours-page-row {
+    display: block;
+    .tour-card {
+      margin: 15px 0;
+    }
+  }
+}

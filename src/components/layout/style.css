@@ -1,0 +1,289 @@
+header {
+  transition: 0.5s all;
+  background: #000000c6;
+  z-index: 9999;
+  position: absolute;
+  color: #fff;
+  width: 100%;
+  box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+  padding: 0 !important;
+}
+
+#google_translate_element {
+  margin-top: 40px;
+  color: transparent !important;
+  text-align: center;
+  select {
+    padding: 10px 5px;
+    margin-bottom: -8px;
+    background: transparent;
+    color: #fff;
+    outline: none;
+    border-radius: 5px;
+    border-width: 2px;
+  }
+  option {
+    color: #000 !important;
+  }
+}
+
+.skiptranslate span {
+  display: none !important;
+}
+.skiptranslate {
+  margin-top: -45px !important;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .logo img {
+  transition: 0.5s all;
+  cursor: pointer;
+  width: 70px;
+}
+
+.logo a {
+  text-decoration: none;
+}
+
+header .logo h1:hover {
+  letter-spacing: 3px;
+}
+
+header .navigation {
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+}
+
+.navigation a {
+  transition: 0.3s all;
+  border: 1px solid transparent;
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 6px 0;
+  line-height: 28px;
+}
+
+.navigation li {
+  list-style-type: none !important;
+}
+
+.menu {
+  transition: 0.3s all;
+  display: none;
+}
+
+.open-menu {
+  transition: 0.5s all;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-title {
+  cursor: pointer;
+  padding: 10px 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  color: #000 !important;
+  padding: 10px;
+  list-style-type: none !important;
+  z-index: 9999;
+  min-width: 200px;
+  border-radius: 5px;
+  overflow: hidden;
+  max-height: 0;
+  visibility: hidden;
+  transition: max-height 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.dropdown-menu li {
+  padding: 3px 0;
+}
+
+.dropdown-menu li a {
+  text-decoration: none;
+  color: #000;
+}
+
+.dropdown-menu li a:hover {
+  color: blue;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  max-height: 500px;
+  visibility: visible;
+}
+
+.dropdown-menu.show {
+  display: block;
+  max-height: 500px;
+  visibility: visible;
+}
+
+.dropdown-submenu {
+  position: relative;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: #fff;
+  padding: 10px;
+  list-style: none;
+  z-index: 9999;
+  min-width: 200px;
+  border-radius: 5px;
+  max-height: 0;
+  transition: max-height 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.submenu.show {
+  display: block;
+  max-height: 500px;
+  visibility: visible;
+}
+
+.submenu li a {
+  color: #fff;
+}
+
+.submenu li a:hover {
+  color: red;
+}
+
+#footer {
+  background: #000;
+  color: #fff !important;
+  padding: 40px 0;
+  margin-top: 20px;
+}
+
+.footer-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  p {
+    margin-top: 10px;
+  }
+  i {
+    margin-right: 10px;
+    font-size: 18px;
+  }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 850px) {
+  .dropdown {
+    width: 100%;
+    text-align: center !important;
+  }
+  .dropdown-menu {
+    width: 100%;
+  }
+}
+
+.nav-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  h3 {
+    margin-bottom: 10px !important;
+  }
+}
+@media (max-width: 800px) {
+  header {
+    transition: 0.3s all;
+    padding: 10px 0 !important;
+  }
+  header * {
+    transition: 0.3s all !important;
+  }
+
+  .menu {
+    transition: 0.5s all;
+    display: block;
+    z-index: 99999;
+  }
+
+  .menu img {
+    transition: 0.5s all;
+    filter: invert(100%);
+  }
+
+  .navigation {
+    display: none !important;
+  }
+
+  .navigation.open {
+    animation: openModal 0.6s forwards;
+    opacity: 1;
+    position: fixed;
+    z-index: 99999;
+    width: 100% !important;
+    height: 100vh;
+    top: 0;
+    padding: 200px 0;
+    background: #181818;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hide {
+    animation: hideModal 0.6s forwards;
+    opacity: 1;
+    position: fixed;
+    overflow: hidden !important;
+    z-index: 99999;
+    width: 100% !important;
+    height: 100vh;
+    top: 0;
+    padding: 0;
+    background: #181818;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@keyframes openModal {
+  0% {
+    right: -100%;
+  }
+  100% {
+    right: 0;
+  }
+}
+@keyframes hideModal {
+  0% {
+    right: 0;
+  }
+  100% {
+    right: -100%;
+  }
+}
