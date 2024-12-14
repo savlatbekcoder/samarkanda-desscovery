@@ -147,8 +147,8 @@ function Header() {
         <div className={menuOpen ? `open-menu menu` : `menu`}>
           <button className="menu-toggle" onClick={toggleMenu}>
             <LazyLoadImage
-              width={"50px"}
-              height={"50px"}
+              width={"30px"}
+              height={"30px"}
               src={menuOpen ? close : open}
               effect="blur"
             />

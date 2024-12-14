@@ -1,7 +1,9 @@
-export default function TourCard({ price, image, tour_length, name }) {
+import { useNavigate } from "react-router-dom";
+export default function TourCard({ price, image, tour_length, name, id }) {
+  const navigate = useNavigate();
   return (
     <>
-      <div className="tour-card">
+      <div onClick={() => navigate(`/tours/${id}`)} className="tour-card">
         <div
           className="tour-header"
           style={{ backgroundImage: `url(${image})` }}

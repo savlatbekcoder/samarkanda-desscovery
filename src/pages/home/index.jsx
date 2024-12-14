@@ -22,13 +22,13 @@ import TourCard from "../../components/tour_card";
 
 export default function Home() {
   const slides = [
-    { id: 1, content: "Uzbekistan", image },
-    { id: 2, content: "Tajikistan", image: taj },
-    { id: 3, content: "Kyrgyzstan", image: kr },
-    { id: 4, content: "Turkmenistan", image: tur },
-    { id: 5, content: "Kazakhstan", image: kaz },
+    { id: "t1", content: "Uzbekistan", image },
+    { id: "t2", content: "Tajikistan", image: taj },
+    { id: "t3", content: "Kyrgyzstan", image: kr },
+    { id: "t4", content: "Turkmenistan", image: tur },
+    { id: "t5", content: "Kazakhstan", image: kaz },
     {
-      id: 6,
+      id: "t6",
       content: "The Great Silk Road",
       image: road,
     },
@@ -151,6 +151,7 @@ export default function Home() {
                   price={tour.price}
                   image={tour.image}
                   name={tour.content}
+                  id={tour.id}
                   tour_length={tour.tour_length}
                 />
               </SwiperSlide>
