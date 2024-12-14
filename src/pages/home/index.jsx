@@ -22,13 +22,13 @@ import TourCard from "../../components/tour_card";
 
 export default function Home() {
   const slides = [
-    { id: "t1", content: "Uzbekistan", image },
-    { id: "t2", content: "Tajikistan", image: taj },
-    { id: "t3", content: "Kyrgyzstan", image: kr },
-    { id: "t4", content: "Turkmenistan", image: tur },
-    { id: "t5", content: "Kazakhstan", image: kaz },
+    { id: 1, content: "Uzbekistan", image },
+    { id: 2, content: "Tajikistan", image: taj },
+    { id: 3, content: "Kyrgyzstan", image: kr },
+    { id: 4, content: "Turkmenistan", image: tur },
+    { id: 5, content: "Kazakhstan", image: kaz },
     {
-      id: "t6",
+      id: 6,
       content: "The Great Silk Road",
       image: road,
     },
@@ -36,42 +36,42 @@ export default function Home() {
 
   const tours = [
     {
-      id: 1,
+      id: "t1",
       price: "545$",
       content: "Tour to Uzbekistan from Moscow",
       tour_length: "6 days/5 nights",
       image: tour1,
     },
     {
-      id: 2,
+      id: "t2",
       price: "555$",
       content: "Three pearls of the east",
       tour_length: "7 days/6 nights",
       image: tour2,
     },
     {
-      id: 3,
+      id: "t3",
       price: "695$",
       content: "Treasures of Eastern Culture",
       tour_length: "9 days/8 nights",
       image: tour3,
     },
     {
-      id: 4,
+      id: "t4",
       price: "640$",
       content: "Oasis of the medieval east",
       tour_length: "8 days/7 nights",
       image: tour4,
     },
     {
-      id: 5,
+      id: "t5",
       price: "770$",
       content: "Dear ancient caravan",
       tour_length: "11 days/10 nights",
       image: tour5,
     },
     {
-      id: 6,
+      id: "t6",
       price: "875$",
       content: "Welcome to Uzbekistan",
       tour_length: "13 days/12 nights",
@@ -92,10 +92,9 @@ export default function Home() {
             navigation
             pagination={{ clickable: true }}
             spaceBetween={20}
-            slidesPerView={3}
             loop={true}
             breakpoints={{
-              540: {
+              850: {
                 slidesPerView: 1, // 1 slide for devices 640px wide or smaller
               },
               768: {
@@ -130,7 +129,6 @@ export default function Home() {
             navigation
             pagination={{ clickable: true }}
             spaceBetween={20}
-            slidesPerView={3}
             loop={true}
             breakpoints={{
               540: {
