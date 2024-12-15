@@ -67,28 +67,118 @@ function Header() {
                   <div></div>
                   <ul className="submenu">
                     <li>
-                      <Link to="/destinations/uzbekistan/tashkent">
+                      <Link
+                        onClick={() => setMenuOpen(false)}
+                        to="/destinations/uzbekistan/tashkent"
+                      >
                         Tashkent
                       </Link>
                     </li>
                     <li>
-                      <Link to="/destinations/uzbekistan/samarkand">
+                      <Link
+                        onClick={() => setMenuOpen(false)}
+                        to="/destinations/uzbekistan/samarkand"
+                      >
                         Samarkand
                       </Link>
                     </li>
                     <li>
-                      <Link to="/destinations/uzbekistan/bukhara">Bukhara</Link>
+                      <Link
+                        onClick={() => setMenuOpen(false)}
+                        to="/destinations/uzbekistan/bukhara"
+                      >
+                        Bukhara
+                      </Link>
                     </li>
                     <li>
-                      <Link to="/destinations/uzbekistan/khiva">Khiva</Link>
+                      <Link
+                        onClick={() => setMenuOpen(false)}
+                        to="/destinations/uzbekistan/khiva"
+                      >
+                        Khiva
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        onClick={() => setMenuOpen(false)}
+                        to="/destinations/uzbekistan/chakhrisabz"
+                      >
+                        Chakhrisabz
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        onClick={() => setMenuOpen(false)}
+                        to="/destinations/uzbekistan/nurata"
+                      >
+                        Nurata
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        onClick={() => setMenuOpen(false)}
+                        to="/destinations/uzbekistan/ferghana-valley"
+                      >
+                        Ferghana valley
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        onClick={() => setMenuOpen(false)}
+                        to="/destinations/uzbekistan/karakalpakstan"
+                      >
+                        Karakalpakstan
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        onClick={() => setMenuOpen(false)}
+                        to="/destinations/uzbekistan/termiz"
+                      >
+                        Termiz
+                      </Link>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <Link to="/destinations/tajikistan">Tajikistan</Link>
+                  <Link
+                    onClick={() => setMenuOpen(false)}
+                    to="/destinations/tajikistan"
+                  >
+                    Tajikistan
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/destinations/kyrgyzstan">Kyrgyzstan</Link>
+                  <Link
+                    onClick={() => setMenuOpen(false)}
+                    to="/destinations/kyrgyzstan"
+                  >
+                    Kyrgyzstan
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    onClick={() => setMenuOpen(false)}
+                    to="/destinations/turkmenistan"
+                  >
+                    Turkmenistan
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    onClick={() => setMenuOpen(false)}
+                    to="/destinations/kazakhstan"
+                  >
+                    Kazakhstan
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    onClick={() => setMenuOpen(false)}
+                    to="/destinations/thegreatsilkroad"
+                  >
+                    The great silk road
+                  </Link>
                 </li>
               </ul>
             )}

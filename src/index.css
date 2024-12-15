@@ -194,6 +194,9 @@
       width: 100% !important;
       position: static !important;
       float: none !important;
+      input {
+        width: 100% !important;
+      }
       label {
         display: block;
       }
