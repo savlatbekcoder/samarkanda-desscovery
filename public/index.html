@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script
+      type="text/javascript"
+      async
+      src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,6 +14,7 @@
       name="description"
       content="Tailor-made tailor-made trips: All our trips can be privatized and personalized on request on the date of your choice."
     />
+
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo.png" />
     <link
       rel="stylesheet"
@@ -17,16 +23,15 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <title>Samarkanda Descovery</title>
+    <title>Samarcanda Descovery</title>
   </head>
   <body>
     <div id="root"></div>
 
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <script>
+    <script type="text/javascript">
       function googleTranslateElementInit() {
         new google.translate.TranslateElement(
-          { pageLanguage: "en" },
+          { pageLanguage: "en", includedLanguages: "es,fr,de,it,ru" }, // Supported languages
           "google_translate_element"
         );
       }

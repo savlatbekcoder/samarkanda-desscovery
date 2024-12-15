@@ -157,6 +157,8 @@ export default function Home() {
           </Swiper>
         </div>
       </div>
+      <br />
+      <br />
     </section>
   );
 }

@@ -7,6 +7,9 @@ import close from "../../assests/icon/close.png";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => setDropdownOpen((prev) => !prev);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -34,13 +37,61 @@ function Header() {
         </div>
 
         <ul className={`navigation ${menuOpen ? "open" : "hide"}`}>
-          <Link onClick={() => setMenuOpen(false)} to={"/"}>
-            Home
-          </Link>
           <li>
-            <Link onClick={() => setMenuOpen(false)} to={"/detinations"}>
-              Destinations
+            <Link onClick={() => setMenuOpen(false)} to={"/"}>
+              Home
             </Link>
+          </li>
+          <li
+            className="dropdown-wrapper"
+            onMouseEnter={toggleDropdown}
+            onMouseLeave={toggleDropdown}
+          >
+            <Link
+              className="desti_link"
+              to="#"
+              onClick={() => setMenuOpen(false)}
+            >
+              Destinations <i class="fa-solid fa-angle-right"></i>
+            </Link>
+            {dropdownOpen && (
+              <ul className="dropdown">
+                <div onClick={toggleDropdown} className="back_button">
+                  <i class="fa-solid fa-angle-left"></i> back
+                </div>
+
+                <li className="submenu-item">
+                  <Link to="/destinations/uzbekistan">
+                    Uzbekistan <i class="fa-solid fa-angle-right"></i>
+                  </Link>
+                  <div></div>
+                  <ul className="submenu">
+                    <li>
+                      <Link to="/destinations/uzbekistan/tashkent">
+                        Tashkent
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/destinations/uzbekistan/samarkand">
+                        Samarkand
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/destinations/uzbekistan/bukhara">Bukhara</Link>
+                    </li>
+                    <li>
+                      <Link to="/destinations/uzbekistan/khiva">Khiva</Link>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <Link to="/destinations/tajikistan">Tajikistan</Link>
+                </li>
+                <li>
+                  <Link to="/destinations/kyrgyzstan">Kyrgyzstan</Link>
+                </li>
+              </ul>
+            )}
           </li>
           <li>
             <Link onClick={() => setMenuOpen(false)} to={"/tours"}>
@@ -53,10 +104,7 @@ function Header() {
             </Link>
           </li>
           <li>
-            <div className="action">
-              {" "}
-              <div id="google_translate_element"></div>
-            </div>
+            <div id="google_translate_element"></div>
           </li>
         </ul>
 

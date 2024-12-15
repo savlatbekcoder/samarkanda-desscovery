@@ -14,7 +14,9 @@ export default function TourCard({ price, image, tour_length, name, id }) {
           <h3>{name}</h3>
           <div className="tour-row">
             <p>&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-            <p>{tour_length} Nights</p>
+            <p>
+              {tour_length.slice(0, -7)} <br /> nights
+            </p>
           </div>
         </div>
       </div>
