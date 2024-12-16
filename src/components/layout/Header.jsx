@@ -130,7 +130,7 @@ function Header() {
                         Karakalpakstan
                       </Link>
                     </li>
-                    <li>
+                    <li className="nonBordered">
                       <Link
                         onClick={() => setMenuOpen(false)}
                         to="/destinations/uzbekistan/termiz"
@@ -172,7 +172,7 @@ function Header() {
                     Kazakhstan
                   </Link>
                 </li>
-                <li>
+                <li className="nonBordered">
                   <Link
                     onClick={() => setMenuOpen(false)}
                     to="/destinations/thegreatsilkroad"

@@ -100,8 +100,7 @@ header .navigation {
 }
 
 .dropdown {
-  position: fixed;
-
+  position: absolute;
   background-color: #000000c6;
   border-radius: 5px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -132,6 +131,10 @@ header .navigation {
   opacity: 0.7;
 }
 
+.nonBordered {
+  border-bottom: 0 !important;
+}
+
 .submenu {
   position: absolute;
   top: -10px;
@@ -144,10 +147,10 @@ header .navigation {
 }
 
 .back_button {
-  color: #fff;
+  color: red;
+  font-weight: bold;
   margin-left: 10px !important;
   cursor: pointer;
-  margin-bottom: 10px;
 }
 
 .submenu-item {
@@ -156,12 +159,6 @@ header .navigation {
 
 .submenu-item:hover .submenu {
   display: block;
-}
-
-@media (min-width: 850px) {
-  .back-button {
-    display: none !important;
-  }
 }
 
 @media (max-width: 850px) {
@@ -185,12 +182,13 @@ header .navigation {
 
   .dropdown {
     display: block;
+    position: fixed;
     width: 100% !important;
     max-height: 100vh !important;
     position: fixed;
     right: 50%;
     background: #181818;
-    overflow-y: scroll !important;
+    overflow-y: auto !important;
   }
 
   .submenu {

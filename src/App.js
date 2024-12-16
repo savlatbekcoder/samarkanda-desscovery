@@ -6,6 +6,8 @@ import Footer from "./components/layout/Footer";
 import Tours from "./pages/tours";
 import TourPageCard from "./components/tour_page_card";
 import { useEffect, useState } from "react";
+import NotFound from "./components/404";
+import Destinations from "./components/destinations";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -34,6 +36,8 @@ function App() {
             <Route path="tours" element={<Tours />} />
             <Route path="about" element={<About />} />
             <Route path="/tours/:id" element={<TourPageCard />} />
+            <Route path="/destinations/:id" element={<Destinations />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
         </>

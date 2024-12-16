@@ -116,6 +116,20 @@
   gap: 20px;
 }
 
+.destination_page_card_row {
+  display: flex;
+  gap: 20px;
+  .side:nth-child(2) {
+    transition: 0.3s all;
+    max-width: min-content;
+    max-height: min-content;
+    display: inline-block;
+    float: right;
+    position: sticky;
+    top: 50px;
+  }
+}
+
 .tour_page_card_row {
   display: flex;
   gap: 10px;
@@ -203,6 +217,18 @@
     }
     .side:nth-child(2) {
       margin-bottom: 20px;
+    }
+  }
+  .destination_page_card_row {
+    display: flex;
+    flex-direction: column;
+    .side {
+      width: 100% !important;
+      position: static !important;
+      float: none !important;
+    }
+    .side:nth-child(2) {
+      display: none;
     }
   }
 }
