@@ -216,12 +216,11 @@ function Header() {
               About Us
             </Link>
           </li>
-          <li>
-          </li>
-        </ul>
           <div className="action">
-          <div id="google_translate_element"></div>
+            <div id="google_translate_element"></div>
           </div>
+        </ul>
+
         <div className={menuOpen ? `open-menu menu` : `menu`}>
           <button className="menu-toggle" onClick={toggleMenu}>
             <LazyLoadImage

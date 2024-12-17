@@ -10,7 +10,6 @@ header {
 }
 
 #google_translate_element {
-  display: block !important;
   margin-top: 40px;
   color: transparent !important;
   text-align: center;
