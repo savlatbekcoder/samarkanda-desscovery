@@ -16,17 +16,55 @@ function App() {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-    }, 5000);
+    }, 7000);
   }, []);
   return (
     <>
       {isLoading ? (
-        <center>
-          <br />
-          <br />
-          <br />
-          <h1>Loading...</h1>
-        </center>
+        <div
+          style={{
+            background: "#000",
+            height: "100vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="xMidYMid"
+            width="200"
+            height="200"
+            style={{
+              shapeRendering: "auto",
+              display: "block",
+              background: "transparent",
+            }}
+          >
+            <g>
+              <circle
+                strokeLinecap="round"
+                fill="none"
+                strokeDasharray="50.26548245743669 50.26548245743669"
+                stroke="#ffffff"
+                strokeWidth="8"
+                r="32"
+                cy="50"
+                cx="50"
+              >
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  values="0 50 50;360 50 50"
+                  keyTimes="0;1"
+                  dur="2s"
+                  repeatCount="indefinite"
+                />
+              </circle>
+            </g>
+          </svg>
+        </div>
       ) : (
         <>
           <Header />

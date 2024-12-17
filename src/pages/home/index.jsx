@@ -19,6 +19,7 @@ import tour4 from "../../assests/bg/tour4.jpg";
 import tour5 from "../../assests/bg/tour5.jpg";
 import tour6 from "../../assests/bg/tour6.jpg";
 import TourCard from "../../components/tour_card";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const slides = [
@@ -108,12 +109,13 @@ export default function Home() {
           >
             {slides.map((slide) => (
               <SwiperSlide key={slide.id}>
-                <div
+                <Link
+                  to={`/destinations/` + slide.content.toLowerCase()}
                   className="desti-card"
                   style={{ backgroundImage: `url(${slide.image})` }}
                 >
                   <h1>{slide.content}</h1>
-                </div>
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>

@@ -28,11 +28,7 @@ function Header() {
       <nav className="container">
         <div className="logo">
           <Link onClick={() => setMenuOpen(false)} to={"/"}>
-            <LazyLoadImage
-              effect="blur"
-              src="/logo.png"
-              alt="Samarkand Discovery"
-            />
+            <img src="/logo.png" alt="Samarkand Discovery" />
           </Link>
         </div>
 
@@ -61,7 +57,7 @@ function Header() {
                 </div>
 
                 <li className="submenu-item">
-                  <Link to="/destinations/uzbekistan">
+                  <Link to="/destinations">
                     Uzbekistan <i class="fa-solid fa-angle-right"></i>
                   </Link>
                   <div></div>
@@ -69,7 +65,7 @@ function Header() {
                     <li>
                       <Link
                         onClick={() => setMenuOpen(false)}
-                        to="/destinations/uzbekistan/tashkent"
+                        to="/destinations/tashkent"
                       >
                         Tashkent
                       </Link>
@@ -77,7 +73,7 @@ function Header() {
                     <li>
                       <Link
                         onClick={() => setMenuOpen(false)}
-                        to="/destinations/uzbekistan/samarkand"
+                        to="/destinations/samarkand"
                       >
                         Samarkand
                       </Link>
@@ -85,7 +81,7 @@ function Header() {
                     <li>
                       <Link
                         onClick={() => setMenuOpen(false)}
-                        to="/destinations/uzbekistan/bukhara"
+                        to="/destinations/bukhara"
                       >
                         Bukhara
                       </Link>
@@ -93,7 +89,7 @@ function Header() {
                     <li>
                       <Link
                         onClick={() => setMenuOpen(false)}
-                        to="/destinations/uzbekistan/khiva"
+                        to="/destinations/khiva"
                       >
                         Khiva
                       </Link>
@@ -101,7 +97,7 @@ function Header() {
                     <li>
                       <Link
                         onClick={() => setMenuOpen(false)}
-                        to="/destinations/uzbekistan/chakhrisabz"
+                        to="/destinations/chakhrisabz"
                       >
                         Chakhrisabz
                       </Link>
@@ -109,7 +105,7 @@ function Header() {
                     <li>
                       <Link
                         onClick={() => setMenuOpen(false)}
-                        to="/destinations/uzbekistan/nurata"
+                        to="/destinations/nurata"
                       >
                         Nurata
                       </Link>
@@ -117,7 +113,7 @@ function Header() {
                     <li>
                       <Link
                         onClick={() => setMenuOpen(false)}
-                        to="/destinations/uzbekistan/ferghana-valley"
+                        to="/destinations/ferghanavalley"
                       >
                         Ferghana valley
                       </Link>
@@ -125,7 +121,7 @@ function Header() {
                     <li>
                       <Link
                         onClick={() => setMenuOpen(false)}
-                        to="/destinations/uzbekistan/karakalpakstan"
+                        to="/destinations/karakalpakstan"
                       >
                         Karakalpakstan
                       </Link>
@@ -133,7 +129,7 @@ function Header() {
                     <li className="nonBordered">
                       <Link
                         onClick={() => setMenuOpen(false)}
-                        to="/destinations/uzbekistan/termiz"
+                        to="/destinations/termiz"
                       >
                         Termiz
                       </Link>
