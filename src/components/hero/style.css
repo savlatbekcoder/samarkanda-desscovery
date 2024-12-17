@@ -4,6 +4,7 @@
   text-align: center;
   background-size: cover;
   background-attachment: fixed;
+  background-position: bottom;
   .con-bg {
     height: 600px;
     width: 100%;
