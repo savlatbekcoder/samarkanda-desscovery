@@ -64,7 +64,10 @@ function Header() {
                   <ul className="submenu">
                     <li>
                       <Link
-                        onClick={() => setMenuOpen(false)}
+                        onClick={() => {
+                          toggleDropdown();
+                          toggleMenu();
+                        }}
                         to="/destinations/tashkent"
                       >
                         Tashkent
@@ -72,7 +75,10 @@ function Header() {
                     </li>
                     <li>
                       <Link
-                        onClick={() => setMenuOpen(false)}
+                        onClick={() => {
+                          toggleDropdown();
+                          toggleMenu();
+                        }}
                         to="/destinations/samarkand"
                       >
                         Samarkand
@@ -80,7 +86,10 @@ function Header() {
                     </li>
                     <li>
                       <Link
-                        onClick={() => setMenuOpen(false)}
+                        onClick={() => {
+                          toggleDropdown();
+                          toggleMenu();
+                        }}
                         to="/destinations/bukhara"
                       >
                         Bukhara
@@ -88,7 +97,10 @@ function Header() {
                     </li>
                     <li>
                       <Link
-                        onClick={() => setMenuOpen(false)}
+                        onClick={() => {
+                          toggleDropdown();
+                          toggleMenu();
+                        }}
                         to="/destinations/khiva"
                       >
                         Khiva
@@ -96,7 +108,10 @@ function Header() {
                     </li>
                     <li>
                       <Link
-                        onClick={() => setMenuOpen(false)}
+                        onClick={() => {
+                          toggleDropdown();
+                          toggleMenu();
+                        }}
                         to="/destinations/chakhrisabz"
                       >
                         Chakhrisabz
@@ -104,7 +119,10 @@ function Header() {
                     </li>
                     <li>
                       <Link
-                        onClick={() => setMenuOpen(false)}
+                        onClick={() => {
+                          toggleDropdown();
+                          toggleMenu();
+                        }}
                         to="/destinations/nurata"
                       >
                         Nurata
@@ -112,7 +130,10 @@ function Header() {
                     </li>
                     <li>
                       <Link
-                        onClick={() => setMenuOpen(false)}
+                        onClick={() => {
+                          toggleDropdown();
+                          toggleMenu();
+                        }}
                         to="/destinations/ferghanavalley"
                       >
                         Ferghana valley
@@ -120,7 +141,10 @@ function Header() {
                     </li>
                     <li>
                       <Link
-                        onClick={() => setMenuOpen(false)}
+                        onClick={() => {
+                          toggleDropdown();
+                          toggleMenu();
+                        }}
                         to="/destinations/karakalpakstan"
                       >
                         Karakalpakstan
@@ -128,7 +152,10 @@ function Header() {
                     </li>
                     <li className="nonBordered">
                       <Link
-                        onClick={() => setMenuOpen(false)}
+                        onClick={() => {
+                          toggleDropdown();
+                          toggleMenu();
+                        }}
                         to="/destinations/termiz"
                       >
                         Termiz

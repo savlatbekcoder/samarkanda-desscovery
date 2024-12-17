@@ -8,7 +8,12 @@ export default function Footer() {
       <div className="container">
         <div className="footer-row">
           <div className="child">
-            <img src={image} alt="image12" />
+            <a
+              href="https://www.petitfute.co.uk/v53147-tachkent/c1122-voyage-transports/c747-tours-operateurs/652321-mansur-bazarbaev.html"
+              about="_blank"
+            >
+              <img src={image} alt="image12" />
+            </a>
             <p>
               Discovery crossroads of the Great Silk Road with Samarcanda
               Discovery
