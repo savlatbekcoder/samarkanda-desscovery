@@ -9,7 +9,7 @@ header {
   padding: 0 !important;
 }
 
-/* #google_translate_element {
+#google_translate_element {
   display: block !important;
   margin-top: 40px;
   color: transparent !important;
@@ -33,7 +33,7 @@ header {
 }
 .skiptranslate {
   margin-top: -45px !important;
-} */
+}
 
 header nav {
   display: flex;
