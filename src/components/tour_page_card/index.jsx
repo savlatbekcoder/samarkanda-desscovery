@@ -588,6 +588,34 @@ const TourPageCard = () => {
               <h1 style={{ fontSize: "32px" }}>{tour.name}</h1>
               <br />
               <div dangerouslySetInnerHTML={{ __html: tour.content }}></div>
+              <div className="comments">
+                <div className="posted-comments"></div>
+                <div className="add-comment">
+                  <h2>Leave a comment:</h2>
+                  <form action="https://formspree.io/f/mqakorno" method="POST">
+                    <div className="form-handle">
+                      <div>
+                        <label>Your name:</label>
+                        <input type="text" name="name" placeholder="John Doe" />
+                      </div>
+                      <div>
+                        <label>Your email:</label>
+                        <input
+                          type="email"
+                          name="email"
+                          placeholder="sample@yourcopmany.com"
+                        />
+                      </div>
+                    </div>
+                    <label>Your comment:</label>
+                    <textarea
+                      name="comment"
+                      placeholder="Your idea about this tour."
+                    ></textarea>
+                    <button type="submit">Submit</button>
+                  </form>
+                </div>
+              </div>
             </div>
             <div className="side">
               <div className="side_header">
