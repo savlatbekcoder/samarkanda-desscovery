@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "./style.css";
@@ -48,17 +49,17 @@ function Header() {
               to="#"
               onClick={() => setMenuOpen(false)}
             >
-              Destinations <i class="fa-solid fa-angle-right"></i>
+              Destinations <i className="fa-solid fa-angle-right"></i>
             </Link>
             {dropdownOpen && (
               <ul className="dropdown">
                 <div onClick={toggleDropdown} className="back_button">
-                  <i class="fa-solid fa-angle-left"></i> back
+                  <i className="fa-solid fa-angle-left"></i> back
                 </div>
 
                 <li className="submenu-item">
                   <Link to="/destinations">
-                    Uzbekistan <i class="fa-solid fa-angle-right"></i>
+                    Uzbekistan <i className="fa-solid fa-angle-right"></i>
                   </Link>
                   <div></div>
                   <ul className="submenu">
@@ -216,9 +217,7 @@ function Header() {
               About Us
             </Link>
           </li>
-          <div className="action">
-            <div id="google_translate_element"></div>
-          </div>
+          <div id="google_translate_element"></div>
         </ul>
 
         <div className={menuOpen ? `open-menu menu` : `menu`}>

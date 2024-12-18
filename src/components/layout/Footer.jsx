@@ -39,7 +39,7 @@ export default function Footer() {
             <h3>Social Networks</h3>
             <i className="fa-brands fa-instagram"></i>
             <i className="fa-brands fa-twitter"></i>
-            <i className="fa-brands fa-facebook"></i>
+            a<i className="fa-brands fa-facebook"></i>
             <i className="fa-brands fa-telegram"></i>
             <i className="fa-brands fa-whatsapp"></i>
           </div>

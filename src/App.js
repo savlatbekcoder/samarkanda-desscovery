@@ -70,12 +70,11 @@ function App() {
           <Header />
           <Routes>
             <Route index element={<Home />} />
-            {/* <Route path="category/:id" element={<CategoryPage />} /> */}
             <Route path="tours" element={<Tours />} />
             <Route path="about" element={<About />} />
             <Route path="/tours/:id" element={<TourPageCard />} />
-            <Route path="/destinations/:id" element={<Destinations />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="/destinations/:id" element={<Destinations />} /> 
+             <Route path="*" element={<NotFound />} /> 
           </Routes>
           <Footer />
         </>
