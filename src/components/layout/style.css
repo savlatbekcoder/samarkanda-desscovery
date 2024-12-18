@@ -9,15 +9,24 @@ header {
   padding: 0 !important;
 }
 
+#goog-gt-tt {
+  display: none !important;
+}
+
 #google_translate_element {
+  position: fixed !important;
   margin-top: 40px;
+  bottom: 10px;
+  right: 10px;
   color: transparent !important;
   text-align: center;
+  z-index: 9999999999999999 !important;
   select {
     padding: 10px 5px;
     margin-bottom: -8px;
     background: transparent;
-    color: #fff;
+    color: #000;
+    border: #000 1px solid;
     outline: none;
     border-radius: 5px;
     border-width: 2px;

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "./style.css";
@@ -217,7 +216,6 @@ function Header() {
               About Us
             </Link>
           </li>
-          <div id="google_translate_element"></div>
         </ul>
 
         <div className={menuOpen ? `open-menu menu` : `menu`}>
