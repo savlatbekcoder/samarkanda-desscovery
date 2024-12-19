@@ -22,26 +22,57 @@ export default function Footer() {
           <div className="child">
             <h3>Contacts</h3>
             <p>
-              <i class="fa-solid fa-phone"></i> +998 90 943 09 80
+              <i className="fa-solid fa-phone"></i> +998 90 943 09 80
             </p>
             <p>
-              <i class="fa-solid fa-envelope"></i> silkroadtourisme@gmail.com
+              <i className="fa-solid fa-envelope"></i>{" "}
+              silkroadtourisme@gmail.com
             </p>
             <p>
-              <i class="fa-solid fa-location-dot"></i> 2/7, st., Akhmad Danish,
-              Tashkent 100180, Uzbekistan
+              <i className="fa-solid fa-location-dot"></i> 2/7, st., Akhmad
+              Danish, Tashkent 100180, Uzbekistan
             </p>
             <p>
-              <i class="fa-solid fa-clock"></i> We are online 24/7
+              <i className="fa-solid fa-clock"></i> We are online 24/7
             </p>
           </div>
           <div className="child">
             <h3>Social Networks</h3>
-            <i className="fa-brands fa-instagram"></i>
-            <i className="fa-brands fa-twitter"></i>
-            a<i className="fa-brands fa-facebook"></i>
-            <i className="fa-brands fa-telegram"></i>
-            <i className="fa-brands fa-whatsapp"></i>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.instagram.com/samarcanda_discovery/"
+            >
+              <i className="social_links fa-brands fa-instagram"></i>
+            </a>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://x.com/mansur_baz?s=11"
+            >
+              <i className="social_links fa-brands fa-twitter"></i>
+            </a>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.facebook.com/samarcandadiscovery/"
+            >
+              <i className="social_links fa-brands fa-facebook"></i>
+            </a>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://t.me/travels_uzbekistan"
+            >
+              <i className="social_links fa-brands fa-telegram"></i>
+            </a>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://wa.me/998977541680"
+            >
+              <i className="social_links fa-brands fa-whatsapp"></i>
+            </a>
           </div>
         </div>
       </div>

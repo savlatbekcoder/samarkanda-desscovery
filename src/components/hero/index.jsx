@@ -12,7 +12,7 @@ export default function Hero({ image, text }) {
             <h1>{text}</h1>
           ) : (
             <>
-              <h1>Samarcanda Discovery</h1>
+              <h1 class="notranslate">Samarcanda Discovery</h1>
               <p>Welcome to Uzbekistan</p>
             </>
           )}

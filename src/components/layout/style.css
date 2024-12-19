@@ -9,6 +9,12 @@ header {
   padding: 0 !important;
 }
 
+.social_links {
+  color: #fff !important;
+  font-size: 22px !important;
+  margin-top: 5px;
+}
+
 #goog-gt-tt {
   display: none !important;
 }

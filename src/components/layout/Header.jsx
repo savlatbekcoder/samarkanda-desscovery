@@ -57,7 +57,7 @@ function Header() {
                 </div>
 
                 <li className="submenu-item">
-                  <Link to="/destinations">
+                  <Link to="/destinations/uzbekistan">
                     Uzbekistan <i className="fa-solid fa-angle-right"></i>
                   </Link>
                   <div></div>
@@ -217,7 +217,7 @@ function Header() {
             </Link>
           </li>
         </ul>
-
+        <div className="action"></div>
         <div className={menuOpen ? `open-menu menu` : `menu`}>
           <button className="menu-toggle" onClick={toggleMenu}>
             <LazyLoadImage

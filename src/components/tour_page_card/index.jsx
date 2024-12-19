@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Hero from "../hero";
 import tour1 from "../../assests/bg/tour1.jpg";
@@ -7,12 +7,95 @@ import tour3 from "../../assests/bg/tour3.jpg";
 import tour4 from "../../assests/bg/tour4.jpg";
 import tour5 from "../../assests/bg/tour5.jpg";
 import tour6 from "../../assests/bg/tour6.jpg";
+import axios from "axios";
+
+const API_URL = `https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/comments/`;
 
 const TourPageCard = () => {
   const { id } = useParams();
+
+  const [comments, setComments] = useState([]); // Store all comments
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    rating: 0,
+    comment: "",
+  });
+  const [hover, setHover] = useState(0); // For star hover effects
+  const [error, setError] = useState(""); // For error messages
+
   useEffect(() => {
-    document.documentElement.scrollTop = 0;
-  }, [id]);
+    // document.documentElement.scrollTop = 0;
+
+    const fetchComments = async () => {
+      try {
+        const response = await axios.get(API_URL);
+        setComments(response.data); // Update state with the fetched comments
+      } catch (err) {
+        console.error("Error fetching comments:", err);
+        setError("Failed to load comments. Please try again later.");
+      }
+    };
+
+    fetchComments();
+  }, []);
+
+  // Handle input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  // Handle rating updates
+  const handleRating = (starValue) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      rating: starValue,
+    }));
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Validate form data
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.comment ||
+      formData.rating === 0
+    ) {
+      alert("Please fill out all fields and provide a rating!");
+      return;
+    }
+
+    // Create a new comment object
+    const newComment = {
+      ...formData,
+      createdAt: new Date().toISOString(), // Add createdAt timestamp
+    };
+
+    try {
+      // Post the new comment to the server
+      const response = await axios.post(API_URL, newComment);
+      setComments((prevComments) => [...prevComments, response.data]); // Add the new comment to the list
+
+      // Reset the form
+      setFormData({
+        name: "",
+        email: "",
+        rating: 0,
+        comment: "",
+      });
+      setHover(0); // Reset star hover
+    } catch (err) {
+      console.error("Error posting comment:", err);
+      setError("Failed to post the comment. Please try again.");
+    }
+  };
 
   const tourData = {
     t1: {
@@ -589,32 +672,95 @@ const TourPageCard = () => {
               <br />
               <div dangerouslySetInnerHTML={{ __html: tour.content }}></div>
               <div className="comments">
-                <div className="posted-comments"></div>
-                <div className="add-comment">
-                  <h2>Leave a comment:</h2>
-                  <form action="https://formspree.io/f/mqakorno" method="POST">
-                    <div className="form-handle">
-                      <div>
-                        <label>Your name:</label>
-                        <input type="text" name="name" placeholder="John Doe" />
-                      </div>
-                      <div>
-                        <label>Your email:</label>
-                        <input
-                          type="email"
-                          name="email"
-                          placeholder="sample@yourcopmany.com"
-                        />
-                      </div>
-                    </div>
-                    <label>Your comment:</label>
-                    <textarea
-                      name="comment"
-                      placeholder="Your idea about this tour."
-                    ></textarea>
-                    <button type="submit">Submit</button>
-                  </form>
+                <div className="posted-comments">
+                  <h2>Comments</h2>
+                  {comments.length === 0 && (
+                    <p>No comments yet. Be the first to comment!</p>
+                  )}
+                  <ul>
+                    {comments.map((item) => (
+                      <li key={item.id}>
+                        <strong>{item.name}</strong>
+                        <small>{item.email}</small>
+                        <div className="rating">
+                          {"★".repeat(item.rating) +
+                            "☆".repeat(5 - item.rating)}
+                        </div>
+                        <p>{item.comment}</p>
+                        <small>
+                          Posted on: {new Date(item.createdAt).toLocaleString()}
+                        </small>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
+                <br />
+                {error && <p className="error">{error}</p>}
+
+                <form className="add-comment" onSubmit={handleSubmit}>
+                  <h1>Leave a comment</h1>
+                  <br />
+                  <div className="form-group">
+                    <label htmlFor="name">Name:</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="email">Email:</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+
+                  <div className="star-rating">
+                    <label>Rate Us:</label>
+                    <div>
+                      {[...Array(5)].map((_, index) => {
+                        const starValue = index + 1;
+                        return (
+                          <span
+                            key={starValue}
+                            className={`star ${
+                              starValue <= (hover || formData.rating)
+                                ? "active"
+                                : ""
+                            }`}
+                            onClick={() => handleRating(starValue)}
+                            onMouseEnter={() => setHover(starValue)}
+                            onMouseLeave={() => setHover(0)}
+                          >
+                            &#9733;
+                          </span>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="comment">Comment:</label>
+                    <textarea
+                      id="comment"
+                      name="comment"
+                      value={formData.comment}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+
+                  <button type="submit">Submit</button>
+                </form>
               </div>
             </div>
             <div className="side">
@@ -644,6 +790,7 @@ const TourPageCard = () => {
                   name="number_of_person"
                   placeholder="1 person"
                 />
+
                 <button type="submit">Order this tour</button>
               </form>
             </div>
