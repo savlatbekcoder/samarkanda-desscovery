@@ -255,6 +255,13 @@ header .navigation {
   header {
     transition: 0.3s all;
     padding: 10px 0 !important;
+    .container {
+      display: flex;
+      justify-content: space-between;
+      .action {
+        width: 100px;
+      }
+    }
   }
   header * {
     transition: 0.3s all !important;
@@ -264,8 +271,7 @@ header .navigation {
     transition: 0.5s all;
     display: block;
     z-index: 99999;
-    position: fixed !important;
-    right: 10px;
+    left: 10px;
     background: #000000c6;
     border: 1px solid #fff;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,

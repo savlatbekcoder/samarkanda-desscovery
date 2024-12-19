@@ -10,42 +10,42 @@ import Hero from "../../components/hero";
 
 const tours = [
   {
-    id: "t1",
+    id: "1",
     price: "545$",
     content: "Tour to Uzbekistan from Moscow",
     tour_length: "6 days/5 nights",
     image: tour1,
   },
   {
-    id: "t2",
+    id: "2",
     price: "555$",
     content: "Three pearls of the east",
     tour_length: "7 days/6 nights",
     image: tour2,
   },
   {
-    id: "t3",
+    id: "3",
     price: "695$",
     content: "Treasures of Eastern Culture",
     tour_length: "9 days/8 nights",
     image: tour3,
   },
   {
-    id: "t4",
+    id: "4",
     price: "640$",
     content: "Oasis of the medieval east",
     tour_length: "8 days/7 nights",
     image: tour4,
   },
   {
-    id: "t5",
+    id: "5",
     price: "770$",
     content: "Dear ancient caravan",
     tour_length: "11 days/10 nights",
     image: tour5,
   },
   {
-    id: "t6",
+    id: "6",
     price: "875$",
     content: "Welcome to Uzbekistan",
     tour_length: "13 days/12 nights",
