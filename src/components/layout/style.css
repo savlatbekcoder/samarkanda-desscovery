@@ -252,14 +252,21 @@ header .navigation {
   }
 }
 @media (max-width: 850px) {
+  .gtranslate_wrapper {
+    z-index: 0 !important;
+  }
+  #gt_float_wrapper {
+    position: absolute !important;
+
+    top: 3.5% !important;
+    right: 10px;
+  }
   header {
     transition: 0.3s all;
     padding: 10px 0 !important;
     .container {
-      display: flex;
-      justify-content: space-between;
       .action {
-        width: 100px;
+        display: none;
       }
     }
   }
@@ -269,9 +276,10 @@ header .navigation {
 
   .menu {
     transition: 0.5s all;
+    position: fixed;
     display: block;
     z-index: 99999;
-    left: 10px;
+    right: 10px;
     background: #000000c6;
     border: 1px solid #fff;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,

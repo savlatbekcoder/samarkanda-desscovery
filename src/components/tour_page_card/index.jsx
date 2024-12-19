@@ -1,29 +1,27 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Hero from "../hero";
-import tour1 from "../../assests/bg/tour1.jpg";
-import tour2 from "../../assests/bg/tour2.jpg";
-import tour3 from "../../assests/bg/tour3.jpg";
-import tour4 from "../../assests/bg/tour4.jpg";
-import tour5 from "../../assests/bg/tour5.jpg";
-import tour6 from "../../assests/bg/tour6.jpg";
+// import tour1 from "../../assests/bg/tour1.jpg";
+// import tour2 from "../../assests/bg/tour2.jpg";
+// import tour3 from "../../assests/bg/tour3.jpg";
+// import tour4 from "../../assests/bg/tour4.jpg";
+// import tour5 from "../../assests/bg/tour5.jpg";
+// import tour6 from "../../assests/bg/tour6.jpg";
 import axios from "axios";
-
-const API_URL = `https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/comments/`;
 
 const TourPageCard = () => {
   const { id } = useParams();
 
-  const [comments, setComments] = useState([]); // Store all comments
-  const [tours, setTours] = useState({}); // Store all comments
+  const [comments, setComments] = useState([]);
+  const [tours, setTours] = useState({});
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     rating: 0,
     comment: "",
   });
-  const [hover, setHover] = useState(0); // For star hover effects
-  const [error, setError] = useState(""); // For error messages
+  const [hover, setHover] = useState(0);
+  const [error, setError] = useState("");
 
   // const tourArray = Object.keys(tourData).map((key, index) => ({
   //   id: `tour-${index + 1}`, // Unique ID
@@ -54,11 +52,13 @@ const TourPageCard = () => {
 
     const fetchComments = async () => {
       try {
-        const response = await axios.get(API_URL);
-        setComments(response.data); // Update state with the fetched comments
+        const response = await axios.get(
+          `https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/tours/${id}/comments`
+        );
+        setComments(response.data);
       } catch (err) {
         console.error("Error fetching comments:", err);
-        setError("Failed to load comments. Please try again later.");
+        // setError("Failed to load comments. Please try again later.");
       }
     };
 
@@ -159,7 +159,10 @@ const TourPageCard = () => {
 
     try {
       // Post the new comment to the server
-      const response = await axios.post(API_URL, newComment);
+      const response = await axios.post(
+        `https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/tours/${id}/comments/`,
+        newComment
+      );
       setComments((prevComments) => [...prevComments, response.data]); // Add the new comment to the list
 
       // Reset the form
@@ -185,7 +188,12 @@ const TourPageCard = () => {
         <br />
         <br />
         <br />
-        <h1>Loading...</h1>
+        <br />
+        <center>
+          <h1>Loading...</h1>
+        </center>
+        <br />
+        <br />
         <br />
         <br />
         <br />
@@ -206,7 +214,9 @@ const TourPageCard = () => {
                 <div className="posted-comments">
                   <h2>Comments</h2>
                   {comments.length === 0 && (
-                    <p>No comments yet. Be the first to comment!</p>
+                    <p style={{ color: "red" }}>
+                      No comments yet. Be the first to comment!
+                    </p>
                   )}
                   <ul>
                     {comments.map((item) => (
@@ -228,7 +238,7 @@ const TourPageCard = () => {
                 {error && <p className="error">{error}</p>}
 
                 <form className="add-comment" onSubmit={handleSubmit}>
-                  <h1>Leave a comment</h1>
+                  <h1 style={{ color: "#006742" }}>Leave a comment</h1>
                   <br />
                   <div className="form-group">
                     <label htmlFor="name">Name:</label>

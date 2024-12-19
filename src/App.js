@@ -8,6 +8,8 @@ import TourPageCard from "./components/tour_page_card";
 import { useEffect, useState } from "react";
 import NotFound from "./components/404";
 import Destinations from "./components/destinations";
+import Login from "./back-end/login";
+import Admin from "./back-end/admin";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -72,9 +74,11 @@ function App() {
             <Route index element={<Home />} />
             <Route path="tours" element={<Tours />} />
             <Route path="about" element={<About />} />
+            <Route path="auth/as/back-end/login" element={<Login />} />
+            <Route path="auth/as/back-end/admin" element={<Admin />} />
             <Route path="/tours/:id" element={<TourPageCard />} />
-            <Route path="/destinations/:id" element={<Destinations />} /> 
-             <Route path="*" element={<NotFound />} /> 
+            <Route path="/destinations/:id" element={<Destinations />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
         </>

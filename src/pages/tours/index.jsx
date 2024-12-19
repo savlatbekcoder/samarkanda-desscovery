@@ -25,7 +25,7 @@ const tours = [
   },
   {
     id: "3",
-    price: "695$",
+    price: "605$",
     content: "Treasures of Eastern Culture",
     tour_length: "9 days/8 nights",
     image: tour3,

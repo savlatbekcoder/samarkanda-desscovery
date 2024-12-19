@@ -26,16 +26,6 @@ function Header() {
   return (
     <header>
       <nav className="container notranslate">
-        <div className={menuOpen ? `open-menu menu` : `menu`}>
-          <button className="menu-toggle" onClick={toggleMenu}>
-            <LazyLoadImage
-              width={"30px"}
-              height={"30px"}
-              src={menuOpen ? close : open}
-              effect="blur"
-            />
-          </button>
-        </div>
         <div className="logo">
           <Link onClick={() => setMenuOpen(false)} to={"/"}>
             <img src="/logo.png" alt="Samarkand Discovery" />
@@ -227,6 +217,16 @@ function Header() {
             </Link>
           </li>
         </ul>
+        <div className={menuOpen ? `open-menu menu` : `menu`}>
+          <button className="menu-toggle" onClick={toggleMenu}>
+            <LazyLoadImage
+              width={"30px"}
+              height={"30px"}
+              src={menuOpen ? close : open}
+              effect="blur"
+            />
+          </button>
+        </div>
         <div className="action"></div>
       </nav>
     </header>
