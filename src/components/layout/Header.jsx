@@ -35,7 +35,7 @@ function Header() {
         <ul className={`navigation ${menuOpen ? "open" : "hide"}`}>
           <li>
             <Link onClick={() => setMenuOpen(false)} to={"/"}>
-              Main
+              Home
             </Link>
           </li>
           <li
