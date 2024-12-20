@@ -307,7 +307,7 @@ const TourPageCard = () => {
               <div className="side_header">
                 <h1>{tour.price}</h1> <p>Per person</p>
               </div>
-              <form action="https://formspree.io/f/mqakorno" method="POST">
+              <form action="https://formspree.io/f/xgvegqab" method="POST">
                 <label>Full name:</label>
                 <input type="text" name="full_name" placeholder="John Doe" />
                 <label>E-mail address:</label>
