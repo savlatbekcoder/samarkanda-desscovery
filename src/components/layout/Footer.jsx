@@ -32,9 +32,7 @@ export default function Footer() {
               <i className="fa-solid fa-location-dot"></i> 2/7, st., Akhmad
               Danish, Tashkent 100180, Uzbekistan
             </p>
-            <p>
-              <i className="fa-solid fa-clock"></i> We are online 24/7
-            </p>
+           
           </div>
           <div className="child">
             <h3>Social Networks</h3>
