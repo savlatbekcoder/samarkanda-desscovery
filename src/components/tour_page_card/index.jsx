@@ -808,9 +808,9 @@ const TourPageCard = () => {
               {activeTab === "dataAndPrice" && (
                 <>
                   <div className="data_price">{tour.data_price}</div>
-                  <h1 style={{ fontSize: "32px" }}>{tour.name}</h1>
+                  {/* <h1 style={{ fontSize: "32px" }}>{tour.name}</h1>
                   <br />
-                  <div dangerouslySetInnerHTML={{ __html: tour.content }}></div>
+                  <div dangerouslySetInnerHTML={{ __html: tour.content }}></div> */}
                 </>
               )}
               <div className="comments">
