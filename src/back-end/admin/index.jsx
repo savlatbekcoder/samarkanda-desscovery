@@ -7,6 +7,8 @@ import "../index.css";
 const Admin = () => {
   const [tours, setTours] = useState({});
   const [commentsVisibility, setCommentsVisibility] = useState({});
+  const [editId, setEditId] = useState(null); // Track the object being edited
+  const [newDataPrice, setNewDataPrice] = useState(""); // Track new value
 
   const isLoggedIn = window.localStorage.getItem("issssseeeeeeLOOOOOOOgiiin");
   console.log(isLoggedIn);
@@ -99,17 +101,6 @@ const Admin = () => {
     }
   };
 
-  const deleteTour = async (tourKey) => {
-    try {
-      await axios.delete(
-        `https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/tours/${tourKey}`
-      );
-      console.log(`Deleted tour: ${tourKey}`);
-    } catch (error) {
-      console.error(`Error deleting tour ${tourKey}:`, error.message);
-    }
-  };
-
   const updateTour = async (tourKey, updatedData) => {
     try {
       const response = await axios.put(
@@ -119,6 +110,35 @@ const Admin = () => {
       console.log(`Updated tour: ${tourKey}`, response.data);
     } catch (error) {
       console.error(`Error updating tour ${tourKey}:`, error.message);
+    }
+  };
+
+  const handleEdit = (id, currentDataPrice) => {
+    setEditId(id); // Set the ID of the object being edited
+    setNewDataPrice(currentDataPrice); // Pre-fill input with current data_price value
+  };
+
+  const handleSave = async (id) => {
+    try {
+      const updatedTour = { ...tours[id], data_price: newDataPrice };
+
+      // Make sure the endpoint is correct
+      await axios.put(
+        `https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/tours/${id}`,
+        updatedTour
+      );
+
+      // Update local state
+      setTours((prevTours) => ({
+        ...prevTours,
+        [id]: updatedTour,
+      }));
+
+      setEditId(null); // Exit edit mode
+      alert("Data price updated successfully!");
+    } catch (error) {
+      console.error("Error updating data price:", error.message);
+      alert("Failed to update data price.");
     }
   };
 
@@ -153,6 +173,68 @@ const Admin = () => {
               />
               <h4>{tour.name}</h4>
               <b style={{ color: "red" }}>{tour.price}</b>
+              <br />
+              <div>
+                <div
+                  key={tour.id}
+                  style={{
+                    marginBottom: "10px",
+                    border: "1px solid #ddd",
+                    padding: "10px",
+                  }}
+                >
+                  <p>
+                    <b>data price:</b>{" "}
+                    {editId === tour.id ? (
+                      <>
+                        <input
+                          type="text"
+                          value={newDataPrice}
+                          onChange={(e) => setNewDataPrice(e.target.value)}
+                          style={{ padding: "5px", width: "200px" }}
+                        />
+                        <button
+                          onClick={() => handleSave(tour.id)}
+                          style={{
+                            padding: "5px 10px",
+                            backgroundColor: "#28a745",
+                            color: "#fff",
+                            border: "none",
+                            cursor: "pointer",
+                            marginLeft: "10px",
+                          }}
+                        >
+                          Save
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <span
+                          style={{
+                            wordBreak: "break-word",
+                            marginRight: "10px",
+                          }}
+                        >
+                          {tour.data_price}
+                        </span>
+                        <button
+                          onClick={() => handleEdit(tour.id, tour.data_price)}
+                          style={{
+                            padding: "5px 10px",
+                            backgroundColor: "#007bff",
+                            color: "#fff",
+                            border: "none",
+                            cursor: "pointer",
+                          }}
+                        >
+                          Edit
+                        </button>
+                      </>
+                    )}
+                  </p>
+                </div>
+              </div>
+
               <br />
               <button
                 className="toggle_button_admin"

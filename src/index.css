@@ -162,6 +162,13 @@
   }
 }
 
+.data_price {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
 .tours-page-row {
   margin: 20px 0;
   display: grid;
