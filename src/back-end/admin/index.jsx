@@ -7,76 +7,82 @@ import "../index.css";
 const Admin = () => {
   const [tours, setTours] = useState({});
   const [commentsVisibility, setCommentsVisibility] = useState({});
-  const [editId, setEditId] = useState(null); // Track the object being edited
-  const [newDataPrice, setNewDataPrice] = useState(""); // Track new value
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const isLoggedIn = window.localStorage.getItem("issssseeeeeeLOOOOOOOgiiin");
   console.log(isLoggedIn);
+  const [tour, setTour] = useState({
+    name: "",
+    image: "",
+    content: `<h3>Day 1</h3>
+    Your datas here for Day 1`,
+    price: "",
+    data_price: "",
+    filter: "all",
+  });
 
-  useEffect(() => {
-    const loadTourData = async () => {
-      try {
-        const response = await axios.get(
-          "https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/tours"
-        );
-        const data = response.data;
+  const fetchComments = async (tourIds) => {
+    try {
+      const commentsPromises = tourIds.map(async (id) => {
+        try {
+          const response = await axios.get(
+            `https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/tours/${id}/comments`
+          );
+          return { id, comments: response.data, error: null };
+        } catch (error) {
+          console.error(
+            `Error fetching comments for tour ${id}:`,
+            error.message
+          );
+          return { id, comments: [], error: error.message }; // Return empty comments on error
+        }
+      });
 
-        const tourData = data.reduce((acc, tour) => {
-          const key = tour.id;
-          acc[key] = { ...tour, comments: [] }; // Initialize comments
-          return acc;
-        }, {});
+      const commentsData = await Promise.allSettled(commentsPromises);
 
-        setTours(tourData);
-
-        // After loading tours, fetch comments for each
-        await fetchComments(data.map((tour) => tour.id));
-      } catch (error) {
-        console.error("Error loading tours:", error.message);
-      }
-    };
-
-    const fetchComments = async (tourIds) => {
-      try {
-        const commentsPromises = tourIds.map(async (id) => {
-          try {
-            const response = await axios.get(
-              `https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/tours/${id}/comments`
-            );
-            return { id, comments: response.data, error: null };
-          } catch (error) {
+      setTours((prevTours) => {
+        const updatedTours = { ...prevTours };
+        commentsData.forEach((result) => {
+          if (result.status === "fulfilled") {
+            const { id, comments } = result.value;
+            if (updatedTours[id]) {
+              updatedTours[id].comments = comments;
+            }
+          } else {
             console.error(
-              `Error fetching comments for tour ${id}:`,
-              error.message
+              `Failed to process comments for some tours:`,
+              result.reason
             );
-            return { id, comments: [], error: error.message }; // Return empty comments on error
           }
         });
+        return updatedTours;
+      });
+    } catch (err) {
+      console.error("Error in fetchComments:", err.message);
+    }
+  };
 
-        const commentsData = await Promise.allSettled(commentsPromises);
+  const loadTourData = async () => {
+    try {
+      const response = await axios.get(
+        "https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/tours"
+      );
+      const data = response.data;
 
-        setTours((prevTours) => {
-          const updatedTours = { ...prevTours };
-          commentsData.forEach((result) => {
-            if (result.status === "fulfilled") {
-              const { id, comments } = result.value;
-              if (updatedTours[id]) {
-                updatedTours[id].comments = comments;
-              }
-            } else {
-              console.error(
-                `Failed to process comments for some tours:`,
-                result.reason
-              );
-            }
-          });
-          return updatedTours;
-        });
-      } catch (err) {
-        console.error("Error in fetchComments:", err.message);
-      }
-    };
+      const tourData = data.reduce((acc, tour) => {
+        const key = tour.id;
+        acc[key] = { ...tour, comments: [] }; // Initialize comments
+        return acc;
+      }, {});
 
+      setTours(tourData);
+
+      await fetchComments(data.map((tour) => tour.id));
+    } catch (error) {
+      console.error("Error loading tours:", error.message);
+    }
+  };
+  useEffect(() => {
     loadTourData();
   }, []);
 
@@ -101,52 +107,65 @@ const Admin = () => {
     }
   };
 
-  const updateTour = async (tourKey, updatedData) => {
-    try {
-      const response = await axios.put(
-        `https://mockapi.io/endpoint/tours/${tourKey}`,
-        updatedData
-      );
-      console.log(`Updated tour: ${tourKey}`, response.data);
-    } catch (error) {
-      console.error(`Error updating tour ${tourKey}:`, error.message);
-    }
-  };
-
-  const handleEdit = (id, currentDataPrice) => {
-    setEditId(id); // Set the ID of the object being edited
-    setNewDataPrice(currentDataPrice); // Pre-fill input with current data_price value
-  };
-
-  const handleSave = async (id) => {
-    try {
-      const updatedTour = { ...tours[id], data_price: newDataPrice };
-
-      // Make sure the endpoint is correct
-      await axios.put(
-        `https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/tours/${id}`,
-        updatedTour
-      );
-
-      // Update local state
-      setTours((prevTours) => ({
-        ...prevTours,
-        [id]: updatedTour,
-      }));
-
-      setEditId(null); // Exit edit mode
-      alert("Data price updated successfully!");
-    } catch (error) {
-      console.error("Error updating data price:", error.message);
-      alert("Failed to update data price.");
-    }
-  };
-
   const toggleComments = (tourId) => {
     setCommentsVisibility((prev) => ({
       ...prev,
       [tourId]: !prev[tourId], // Toggle the visibility
     }));
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setTour((prevTour) => ({
+      ...prevTour,
+      [name]: name === "content" ? value.replace(/\n/g, "<br />") : value, // Replace newline with <br />
+    }));
+  };
+
+  const deleteTour = async (tourKey) => {
+    const sure = window.confirm("Are you sure to delete " + tourKey);
+    if (sure) {
+      try {
+        await axios.delete(
+          `https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/tours/${tourKey}`
+        );
+        loadTourData();
+        alert("tour deleted");
+      } catch (error) {
+        console.error(`Error deleting tour ${tourKey}:`, error.message);
+      }
+    } else {
+      alert("Okay, tour did'nt deleted");
+    }
+  };
+
+  const handleAddTour = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/tours",
+        tour
+      );
+
+      if (response.status === 201) {
+        console.log("Tour added successfully:", response.data);
+
+        setTour({
+          name: "",
+          image: "",
+          content: `<h3>Day 1</h3>
+          Your datas here for Day 1`,
+          price: "",
+          data_price: "",
+          filter: "all",
+        });
+        setIsModalOpen(false);
+      }
+      loadTourData();
+    } catch (error) {
+      console.error("Error adding tour:", error);
+    }
   };
 
   return isLoggedIn ? (
@@ -157,13 +176,108 @@ const Admin = () => {
         <br />
         <br />
         <br />
+
+        {isModalOpen && (
+          <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
+            <div
+              className="modal-content"
+              onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the modal
+            >
+              <h2>Add New Tour</h2>
+              <br />
+              <form onSubmit={handleAddTour}>
+                <label>Tour Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={tour.name}
+                  onChange={handleInputChange}
+                  placeholder="Tour Name"
+                  required
+                />
+
+                <label>Image</label>
+                <input
+                  type="text"
+                  name="image"
+                  value={tour.image}
+                  onChange={handleInputChange}
+                  placeholder="Image URL"
+                  required
+                />
+                <label>Price</label>
+                <input
+                  type="text"
+                  name="price"
+                  value={tour.price}
+                  onChange={handleInputChange}
+                  placeholder="Price"
+                  required
+                />
+
+                <label>Data and Price</label>
+                <textarea
+                  name="data_price"
+                  value={tour.data_price}
+                  onChange={handleInputChange}
+                  placeholder="Data and Price"
+                  required
+                />
+                <label>Content</label>
+                <textarea
+                  name="content"
+                  value={tour.content.replace(/<br \/>/g, "\n")}
+                  onChange={handleInputChange}
+                  placeholder="Tour Content"
+                  required
+                />
+
+                <label>Filter</label>
+                <select
+                  name="filter"
+                  value={tour.filter}
+                  onChange={handleInputChange}
+                >
+                  <option value="all">All</option>
+                  <option value="ru">RU</option>
+                  <option value="en">EN</option>
+                  <option value="fr">FR</option>
+                </select>
+
+                <button type="submit" className="submit-btn">
+                  Add Tour
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setIsModalOpen(false)}
+                  className="close-btn"
+                >
+                  Cancel
+                </button>
+              </form>
+            </div>
+          </div>
+        )}
         <center>
           <h1>Welcome to dashboard</h1>
           <br />
         </center>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginBottom: "10px",
+          }}
+        >
+          <h1>Tours</h1>
+          <button onClick={() => setIsModalOpen(true)} className="add-tour-btn">
+            <b>+</b> Add Tour
+          </button>
+        </div>
         <div className="hbdbhb187gyud">
           {Object.values(tours).map((tour) => (
-            <div style={{ width: "300px" }} key={tour.id}>
+            <div style={{ width: "100%" }} key={tour.id}>
               <img
                 width={"100%"}
                 height={"200px"}
@@ -171,10 +285,15 @@ const Admin = () => {
                 src={tour.image}
                 alt=""
               />
+              <i
+                onClick={() => deleteTour(tour.id)}
+                style={{ color: "red", cursor: "pointer" }}
+                className="fa-solid fa-trash"
+              ></i>
               <h4>{tour.name}</h4>
               <b style={{ color: "red" }}>{tour.price}</b>
               <br />
-              <div>
+              {/* <div>
                 <div
                   key={tour.id}
                   style={{
@@ -233,9 +352,8 @@ const Admin = () => {
                     )}
                   </p>
                 </div>
-              </div>
+              </div> */}
 
-              <br />
               <button
                 className="toggle_button_admin"
                 onClick={() => toggleComments(tour.id)}

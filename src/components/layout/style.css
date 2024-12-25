@@ -257,9 +257,7 @@ header .navigation {
   }
   #gt_float_wrapper {
     position: absolute !important;
-
-    top: 3.5% !important;
-    right: 10px;
+    left: 38%;
   }
   header {
     transition: 0.3s all;

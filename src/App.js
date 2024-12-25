@@ -74,8 +74,8 @@ function App() {
             <Route index element={<Home />} />
             <Route path="tours" element={<Tours />} />
             <Route path="about" element={<About />} />
-            <Route path="auth/as/back-end/login" element={<Login />} />
-            <Route path="auth/as/back-end/admin" element={<Admin />} />
+            <Route path="/auth/as/back-end/login" element={<Login />} />
+            <Route path="/auth/as/back-end/admin" element={<Admin />} />
             <Route path="/tours/:id" element={<TourPageCard />} />
             <Route path="/destinations/:id" element={<Destinations />} />
             <Route path="*" element={<NotFound />} />

@@ -715,21 +715,18 @@ const TourPageCard = () => {
       return;
     }
 
-    // Create a new comment object
     const newComment = {
       ...formData,
       createdAt: new Date().toISOString(), // Add createdAt timestamp
     };
 
     try {
-      // Post the new comment to the server
       const response = await axios.post(
         `https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/tours/${id}/comments/`,
         newComment
       );
       setComments((prevComments) => [...prevComments, response.data]); // Add the new comment to the list
 
-      // Reset the form
       setFormData({
         name: "",
         email: "",
@@ -770,7 +767,7 @@ const TourPageCard = () => {
         <br />
         <div className="container">
           <div className="tour_page_card_row">
-            <div className="side">
+            <div className="side" style={{ width: "80%" }}>
               <button
                 style={{
                   padding: "10px 20px",
@@ -807,12 +804,19 @@ const TourPageCard = () => {
               )}
               {activeTab === "dataAndPrice" && (
                 <>
-                  <div className="data_price">{tour.data_price}</div>
+                  <div
+                    dangerouslySetInnerHTML={{ __html: tour.data_price }}
+                    className="data_price"
+                  ></div>
                   {/* <h1 style={{ fontSize: "32px" }}>{tour.name}</h1>
                   <br />
                   <div dangerouslySetInnerHTML={{ __html: tour.content }}></div> */}
                 </>
               )}
+              <br />
+
+              <hr />
+              <br />
               <div className="comments">
                 <div className="posted-comments">
                   <h2>Comments</h2>
