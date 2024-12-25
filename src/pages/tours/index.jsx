@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+import tour3 from "../../assests/bg/tour3.jpg";
 import tour1 from "../../assests/bg/tour1.jpg";
 import tour2 from "../../assests/bg/tour2.jpg";
-import tour3 from "../../assests/bg/tour3.jpg";
 import tour4 from "../../assests/bg/tour4.jpg";
 import tour5 from "../../assests/bg/tour5.jpg";
 import tour6 from "../../assests/bg/tour6.jpg";
+
 import TourCard from "../../components/tour_card";
 import Hero from "../../components/hero";
 import axios from "axios";
@@ -12,50 +13,8 @@ import axios from "axios";
 export default function Tours() {
   const [tours, setTours] = useState([]);
 
-  // const tours = [
-  //   {
-  //     id: "1",
-  //     price: "545$",
-  //     content: "Tour to Uzbekistan from Moscow",
-  //     tour_length: "6 days/5 nights",
-  //     image: tour1,
-  //   },
-  //   {
-  //     id: "2",
-  //     price: "555$",
-  //     content: "Three pearls of the east",
-  //     tour_length: "7 days/6 nights",
-  //     image: tour2,
-  //   },
-  //   {
-  //     id: "3",
-  //     price: "605$",
-  //     content: "Treasures of Eastern Culture",
-  //     tour_length: "9 days/8 nights",
-  //     image: tour3,
-  //   },
-  //   {
-  //     id: "4",
-  //     price: "640$",
-  //     content: "Oasis of the medieval east",
-  //     tour_length: "8 days/7 nights",
-  //     image: tour4,
-  //   },
-  //   {
-  //     id: "5",
-  //     price: "770$",
-  //     content: "Dear ancient caravan",
-  //     tour_length: "11 days/10 nights",
-  //     image: tour5,
-  //   },
-  //   {
-  //     id: "6",
-  //     price: "875$",
-  //     content: "Welcome to Uzbekistan",
-  //     tour_length: "13 days/12 nights",
-  //     image: tour6,
-  //   },
-  // ];
+  const [filter, setFilter] = useState("all"); // State to store the selected filter value
+
   useEffect(() => {
     const loadTourData = async () => {
       try {
@@ -63,12 +22,6 @@ export default function Tours() {
           "https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/tours"
         );
         const data = response.data;
-
-        // const tourData = data.reduce((acc, tour) => {
-        //   const key = tour.id;
-        //   acc[key] = { ...tour, comments: [] }; // Initialize comments
-        //   return acc;
-        // }, {});
 
         console.log(data);
 
@@ -81,6 +34,15 @@ export default function Tours() {
     loadTourData();
     console.log(tours);
   }, []);
+
+  const handleFilterChange = (event) => {
+    setFilter(event.target.value);
+  };
+
+  const filteredTours = tours.filter((tour) => {
+    return filter === "all" || tour.filter === filter;
+  });
+
   return (
     <section>
       <Hero image={tour3} />
@@ -92,17 +54,24 @@ export default function Tours() {
         </center>
         <div className="filters">
           <input type="text" placeholder="Search..." />
-          <select name="filter">
+          <select
+            name="filter"
+            id="tourFilter"
+            value={filter}
+            onChange={handleFilterChange}
+          >
             <option value="all">All</option>
-            <option value="ru">RU</option>
-            <option value="en">EN</option>
-            <option value="fr">FR</option>
+            <option value="it">Italian</option>
+            <option value="en">English</option>
+            <option value="fr">French</option>
+            <option value="ru">Russian</option>
           </select>
         </div>
         <div className="tours-page-row">
-          {Array.isArray(tours) && tours.length > 0 ? (
-            tours.map((tour) => (
+          {Array.isArray(filteredTours) && filteredTours.length > 0 ? (
+            filteredTours.map((tour) => (
               <TourCard
+                key={tour.id} // Add a key to each element for React's reconciliation process
                 id={tour.id}
                 price={tour.price}
                 image={tour.image}

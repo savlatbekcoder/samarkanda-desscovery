@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Hero from "../hero";
-// import tour1 from "../../assests/bg/tour1.jpg";
-// import tour2 from "../../assests/bg/tour2.jpg";
-// import tour3 from "../../assests/bg/tour3.jpg";
-// import tour4 from "../../assests/bg/tour4.jpg";
-// import tour5 from "../../assests/bg/tour5.jpg";
-// import tour6 from "../../assests/bg/tour6.jpg";
+import tour1 from "../../assests/bg/tour1.jpg";
+import tour2 from "../../assests/bg/tour2.jpg";
+import tour3 from "../../assests/bg/tour3.jpg";
+import tour4 from "../../assests/bg/tour4.jpg";
+import tour5 from "../../assests/bg/tour5.jpg";
+import tour6 from "../../assests/bg/tour6.jpg";
 import axios from "axios";
 
 const TourPageCard = () => {
@@ -25,8 +25,9 @@ const TourPageCard = () => {
   const [error, setError] = useState("");
 
   // const tourData = {
-  //   t1: {
+  //   1: {
   //     data_price: "coming soon",
+  //     filter: "ru",
   //     image: tour1,
   //     content: `
   //               <h3>Day 1: Moscow/Urgench/Khiva</h3>
@@ -100,8 +101,9 @@ const TourPageCard = () => {
   //     price: "545$",
   //     name: "Tour to Uzbekistan from Moscow",
   //   },
-  //   t2: {
+  //   2: {
   //     data_price: "coming soon",
+  //     filter: "all",
   //     image: tour2,
   //     content: `
   //               <h3>Day 1: Arrival in Tashkent/Bukhara</h3>
@@ -168,7 +170,7 @@ const TourPageCard = () => {
   //     price: "555$",
   //     name: "Three pearls of the East",
   //   },
-  //   t3: {
+  //   3: {
   //     image: tour3,
   //     content: `
   //              <h3>Day 1: Tashkent</h3>
@@ -254,8 +256,9 @@ const TourPageCard = () => {
   //     price: "605$",
   //     name: "Treasures of Eastern Culture",
   //   },
-  //   t4: {
+  //   4: {
   //     data_price: "coming soon",
+  //     filter: "all",
   //     image: tour4,
   //     content: `
 
@@ -407,8 +410,9 @@ const TourPageCard = () => {
   //     price: "735$",
   //     name: "Oasis of the Medieval East",
   //   },
-  //   t5: {
+  //   5: {
   //     data_price: "coming soon",
+  //     filter: "all",
   //     image: tour5,
   //     content: `
   //           <h3>Day 1: Tashkent</h3>
@@ -502,8 +506,9 @@ const TourPageCard = () => {
   //     price: "650$",
   //     name: "Dear ancient caravan",
   //   },
-  //   t6: {
+  //   6: {
   //     data_price: "coming soon",
+  //     filter: "all",
   //     image: tour6,
   //     content: `
   //           <h3>Day 1: Tashkent</h3>

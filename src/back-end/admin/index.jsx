@@ -5,17 +5,17 @@ import axios from "axios";
 import "../index.css";
 
 const Admin = () => {
-  const [tours, setTours] = useState({});
+  const [tours, setTours] = useState([]);
   const [commentsVisibility, setCommentsVisibility] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedTour, setSelectedTour] = useState(null);
 
   const isLoggedIn = window.localStorage.getItem("issssseeeeeeLOOOOOOOgiiin");
   console.log(isLoggedIn);
   const [tour, setTour] = useState({
     name: "",
     image: "",
-    content: `<h3>Day 1</h3>
-    Your datas here for Day 1`,
+    content: "<h3>Day 1</h3>Your datas here for Day 1",
     price: "",
     data_price: "",
     filter: "all",
@@ -69,13 +69,8 @@ const Admin = () => {
       );
       const data = response.data;
 
-      const tourData = data.reduce((acc, tour) => {
-        const key = tour.id;
-        acc[key] = { ...tour, comments: [] }; // Initialize comments
-        return acc;
-      }, {});
-
-      setTours(tourData);
+      // Set tours directly as an array
+      setTours(data);
 
       await fetchComments(data.map((tour) => tour.id));
     } catch (error) {
@@ -92,7 +87,6 @@ const Admin = () => {
         `https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/tours/${tourId}/comments/${commentId}`
       );
 
-      // Update state to remove the comment
       setTours((prevTours) => {
         const updatedTours = { ...prevTours };
         updatedTours[tourId].comments = updatedTours[tourId].comments.filter(
@@ -114,14 +108,6 @@ const Admin = () => {
     }));
   };
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setTour((prevTour) => ({
-      ...prevTour,
-      [name]: name === "content" ? value.replace(/\n/g, "<br />") : value, // Replace newline with <br />
-    }));
-  };
-
   const deleteTour = async (tourKey) => {
     const sure = window.confirm("Are you sure to delete " + tourKey);
     if (sure) {
@@ -139,32 +125,82 @@ const Admin = () => {
     }
   };
 
-  const handleAddTour = async (e) => {
-    e.preventDefault();
+  const handleEditClick = (tour) => {
+    setSelectedTour(tour);
+    setIsModalOpen(true);
+  };
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setSelectedTour((prevTour) => ({
+      ...prevTour,
+      [name]: name === "content" ? value.replace(/\n/g, "<br />") : value, // Replace newline with <br />
+    }));
+  };
+
+  const handleCancel = () => {
+    setTour({
+      name: "",
+      image: "",
+      content: "<h3>Day 1</h3>Your datas here for Day 1",
+      price: "",
+      data_price: "",
+      filter: "all",
+    });
+
+    setSelectedTour(null);
+
+    setIsModalOpen(false);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     try {
-      const response = await axios.post(
-        "https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/tours",
-        tour
-      );
-
-      if (response.status === 201) {
-        console.log("Tour added successfully:", response.data);
-
+      if (selectedTour.id) {
+        const response = await axios.put(
+          `https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/tours/${selectedTour.id}`,
+          selectedTour
+        );
+        setTours((prevTours) => ({
+          ...prevTours,
+          [selectedTour.id]: response.data,
+        }));
         setTour({
           name: "",
           image: "",
-          content: `<h3>Day 1</h3>
-          Your datas here for Day 1`,
+          content: "<h3>Day 1</h3>Your datas here for Day 1",
           price: "",
           data_price: "",
           filter: "all",
         });
+
+        setSelectedTour(null);
+        loadTourData();
         setIsModalOpen(false);
+      } else {
+        const response = await axios.post(
+          "https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/tours",
+          selectedTour
+        );
+        setTours((prevTours) => ({
+          ...prevTours,
+          [response.data.id]: response.data,
+        }));
       }
+      setTour({
+        name: "",
+        image: "",
+        content: "<h3>Day 1</h3>Your datas here for Day 1",
+        price: "",
+        data_price: "",
+        filter: "all",
+      });
+
+      setSelectedTour(null);
       loadTourData();
+      setIsModalOpen(false);
     } catch (error) {
-      console.error("Error adding tour:", error);
+      console.error("Error submitting tour:", error);
     }
   };
 
@@ -183,14 +219,14 @@ const Admin = () => {
               className="modal-content"
               onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the modal
             >
-              <h2>Add New Tour</h2>
+              <h2>{"Save Tour"}</h2>
               <br />
-              <form onSubmit={handleAddTour}>
+              <form onSubmit={handleSubmit}>
                 <label>Tour Name</label>
                 <input
                   type="text"
                   name="name"
-                  value={tour.name}
+                  value={selectedTour ? selectedTour.name : ""}
                   onChange={handleInputChange}
                   placeholder="Tour Name"
                   required
@@ -200,7 +236,7 @@ const Admin = () => {
                 <input
                   type="text"
                   name="image"
-                  value={tour.image}
+                  value={selectedTour ? selectedTour.image : ""}
                   onChange={handleInputChange}
                   placeholder="Image URL"
                   required
@@ -209,7 +245,7 @@ const Admin = () => {
                 <input
                   type="text"
                   name="price"
-                  value={tour.price}
+                  value={selectedTour ? selectedTour.price : ""}
                   onChange={handleInputChange}
                   placeholder="Price"
                   required
@@ -218,7 +254,7 @@ const Admin = () => {
                 <label>Data and Price</label>
                 <textarea
                   name="data_price"
-                  value={tour.data_price}
+                  value={selectedTour ? selectedTour.data_price : ""}
                   onChange={handleInputChange}
                   placeholder="Data and Price"
                   required
@@ -226,7 +262,11 @@ const Admin = () => {
                 <label>Content</label>
                 <textarea
                   name="content"
-                  value={tour.content.replace(/<br \/>/g, "\n")}
+                  value={
+                    selectedTour
+                      ? selectedTour.content?.replace(/<br \/>/g, "\n")
+                      : ""
+                  }
                   onChange={handleInputChange}
                   placeholder="Tour Content"
                   required
@@ -235,21 +275,25 @@ const Admin = () => {
                 <label>Filter</label>
                 <select
                   name="filter"
-                  value={tour.filter}
+                  value={selectedTour ? selectedTour.filter : ""}
                   onChange={handleInputChange}
                 >
                   <option value="all">All</option>
-                  <option value="ru">RU</option>
                   <option value="en">EN</option>
+                  <option value="it">IT</option>
                   <option value="fr">FR</option>
+                  <option value="ru">RU</option>
                 </select>
 
                 <button type="submit" className="submit-btn">
-                  Add Tour
+                  {"Save Tour"}
                 </button>
                 <button
                   type="button"
-                  onClick={() => setIsModalOpen(false)}
+                  onClick={() => {
+                    handleCancel();
+                    setIsModalOpen(false);
+                  }}
                   className="close-btn"
                 >
                   Cancel
@@ -285,74 +329,26 @@ const Admin = () => {
                 src={tour.image}
                 alt=""
               />
-              <i
-                onClick={() => deleteTour(tour.id)}
-                style={{ color: "red", cursor: "pointer" }}
-                className="fa-solid fa-trash"
-              ></i>
+              <div>
+                <i
+                  onClick={() => handleEditClick(tour)}
+                  class="fa-solid fa-pen-to-square"
+                  style={{
+                    color: "#28a745",
+                    cursor: "pointer",
+                    fontSize: "19px",
+                    marginRight: "10px",
+                  }}
+                ></i>
+                <i
+                  onClick={() => deleteTour(tour.id)}
+                  style={{ color: "red", cursor: "pointer", fontSize: "19px" }}
+                  className="fa-solid fa-trash"
+                ></i>
+              </div>
               <h4>{tour.name}</h4>
               <b style={{ color: "red" }}>{tour.price}</b>
               <br />
-              {/* <div>
-                <div
-                  key={tour.id}
-                  style={{
-                    marginBottom: "10px",
-                    border: "1px solid #ddd",
-                    padding: "10px",
-                  }}
-                >
-                  <p>
-                    <b>data price:</b>{" "}
-                    {editId === tour.id ? (
-                      <>
-                        <input
-                          type="text"
-                          value={newDataPrice}
-                          onChange={(e) => setNewDataPrice(e.target.value)}
-                          style={{ padding: "5px", width: "200px" }}
-                        />
-                        <button
-                          onClick={() => handleSave(tour.id)}
-                          style={{
-                            padding: "5px 10px",
-                            backgroundColor: "#28a745",
-                            color: "#fff",
-                            border: "none",
-                            cursor: "pointer",
-                            marginLeft: "10px",
-                          }}
-                        >
-                          Save
-                        </button>
-                      </>
-                    ) : (
-                      <>
-                        <span
-                          style={{
-                            wordBreak: "break-word",
-                            marginRight: "10px",
-                          }}
-                        >
-                          {tour.data_price}
-                        </span>
-                        <button
-                          onClick={() => handleEdit(tour.id, tour.data_price)}
-                          style={{
-                            padding: "5px 10px",
-                            backgroundColor: "#007bff",
-                            color: "#fff",
-                            border: "none",
-                            cursor: "pointer",
-                          }}
-                        >
-                          Edit
-                        </button>
-                      </>
-                    )}
-                  </p>
-                </div>
-              </div> */}
 
               <button
                 className="toggle_button_admin"
@@ -367,7 +363,7 @@ const Admin = () => {
                 <div className="commentwedfdf">
                   <h4>Comments:</h4>
                   <ul>
-                    {tour.comments.length > 0 ? (
+                    {tour.comments?.length > 0 ? (
                       tour.comments.map((comment) => (
                         <li itemType="1" key={comment.id}>
                           <strong
