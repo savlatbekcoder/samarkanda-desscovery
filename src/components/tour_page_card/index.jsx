@@ -783,7 +783,7 @@ const TourPageCard = () => {
                 }}
                 onClick={() => setActiveTab("data")}
               >
-                Data
+                Tour
               </button>
               <button
                 style={{
@@ -796,7 +796,7 @@ const TourPageCard = () => {
                 }}
                 onClick={() => setActiveTab("dataAndPrice")}
               >
-                Data and Price
+                Dates and prices
               </button>
               <br />
               <br />

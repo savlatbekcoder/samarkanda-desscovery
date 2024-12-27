@@ -38,10 +38,6 @@ export default function About() {
             expertises. Feel free to ask everything you want to prepare your
             future travel along the Silk Road. We wish you a good looking at our
             website and a beautiful forthcoming travel with us!
-            <br />
-            <br />
-            <br />
-            <p style={{ textAlign: "end" }}>«Samarcanda Discovery».</p>
           </p>
         </div>
       </div>
