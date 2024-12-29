@@ -256,8 +256,9 @@ header .navigation {
     z-index: 0 !important;
   }
   #gt_float_wrapper {
-    position: absolute !important;
-    left: 38%;
+    position: fixed;
+    right: 10px !important;
+    top: 100px !important;
   }
   header {
     transition: 0.3s all;

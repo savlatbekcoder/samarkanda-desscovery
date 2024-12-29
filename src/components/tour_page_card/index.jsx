@@ -1,12 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Hero from "../hero";
-import tour1 from "../../assests/bg/tour1.jpg";
-import tour2 from "../../assests/bg/tour2.jpg";
-import tour3 from "../../assests/bg/tour3.jpg";
-import tour4 from "../../assests/bg/tour4.jpg";
-import tour5 from "../../assests/bg/tour5.jpg";
-import tour6 from "../../assests/bg/tour6.jpg";
 import axios from "axios";
 
 const TourPageCard = () => {
@@ -651,44 +645,8 @@ const TourPageCard = () => {
     // postDataToMockAPI();
   }, []);
 
-  console.log(tours);
 
-  const deleteTour = async (tourKey) => {
-    try {
-      await axios.delete(
-        `https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/tours/${tourKey}`
-      );
-      console.log(`Deleted tour: ${tourKey}`);
-    } catch (error) {
-      console.error(`Error deleting tour ${tourKey}:`, error.message);
-    }
-  };
-
-  const updateTour = async (tourKey, updatedData) => {
-    try {
-      const response = await axios.put(
-        `https://mockapi.io/endpoint/tours/${tourKey}`,
-        updatedData
-      );
-      console.log(`Updated tour: ${tourKey}`, response.data);
-    } catch (error) {
-      console.error(`Error updating tour ${tourKey}:`, error.message);
-    }
-  };
-
-  const addTour = async (newTourData) => {
-    try {
-      const response = await axios.post(
-        "https://mockapi.io/endpoint/tours",
-        newTourData
-      );
-      console.log("Added new tour:", response.data);
-    } catch (error) {
-      console.error("Error adding new tour:", error.message);
-    }
-  };
-
-  // Handle input changes
+ 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({

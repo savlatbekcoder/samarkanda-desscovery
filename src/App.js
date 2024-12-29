@@ -10,6 +10,7 @@ import NotFound from "./components/404";
 import Destinations from "./components/destinations";
 import Login from "./back-end/login";
 import Admin from "./back-end/admin";
+import GTranslateWidget from "./components/lang";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -70,6 +71,7 @@ function App() {
       ) : (
         <>
           <Header />
+          <GTranslateWidget />
           <Routes>
             <Route index element={<Home />} />
             <Route path="tours" element={<Tours />} />

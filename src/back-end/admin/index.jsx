@@ -11,14 +11,13 @@ const Admin = () => {
   const [selectedTour, setSelectedTour] = useState(null);
 
   const isLoggedIn = window.localStorage.getItem("issssseeeeeeLOOOOOOOgiiin");
-  console.log(isLoggedIn);
   const [tour, setTour] = useState({
     name: "",
     image: "",
     content: "<h3>Day 1</h3>Your datas here for Day 1",
     price: "",
     data_price: "",
-    filter: "all",
+    filter: "en",
   });
 
   const fetchComments = async (tourIds) => {
@@ -61,6 +60,11 @@ const Admin = () => {
       console.error("Error in fetchComments:", err.message);
     }
   };
+  useEffect(() => {
+    if (!selectedTour) {
+      setSelectedTour({ filter: "en" }); // Default to "en" if selectedTour is null
+    }
+  }, [selectedTour]);
 
   const loadTourData = async () => {
     try {
@@ -94,8 +98,6 @@ const Admin = () => {
         );
         return updatedTours;
       });
-
-      console.log("Comment deleted successfully!");
     } catch (error) {
       console.error("Error deleting comment:", error.message);
     }
@@ -104,7 +106,7 @@ const Admin = () => {
   const toggleComments = (tourId) => {
     setCommentsVisibility((prev) => ({
       ...prev,
-      [tourId]: !prev[tourId], // Toggle the visibility
+      [tourId]: !prev[tourId],
     }));
   };
 
@@ -132,6 +134,7 @@ const Admin = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+
     setSelectedTour((prevTour) => ({
       ...prevTour,
       [name]: name === "content" ? value.replace(/\n/g, "<br />") : value, // Replace newline with <br />
@@ -145,7 +148,7 @@ const Admin = () => {
       content: "<h3>Day 1</h3>Your datas here for Day 1",
       price: "",
       data_price: "",
-      filter: "all",
+      filter: "en",
     });
 
     setSelectedTour(null);
@@ -171,7 +174,7 @@ const Admin = () => {
           content: "<h3>Day 1</h3>Your datas here for Day 1",
           price: "",
           data_price: "",
-          filter: "all",
+          filter: "en",
         });
 
         setSelectedTour(null);
@@ -193,7 +196,7 @@ const Admin = () => {
         content: "<h3>Day 1</h3>Your datas here for Day 1",
         price: "",
         data_price: "",
-        filter: "all",
+        filter: "en",
       });
 
       setSelectedTour(null);
@@ -275,10 +278,9 @@ const Admin = () => {
                 <label>Filter</label>
                 <select
                   name="filter"
-                  value={selectedTour ? selectedTour.filter : ""}
+                  value={selectedTour?.filter || "en"} // Default to "en" if selectedTour or filter is null
                   onChange={handleInputChange}
                 >
-                  <option value="all">All</option>
                   <option value="en">EN</option>
                   <option value="it">IT</option>
                   <option value="fr">FR</option>
