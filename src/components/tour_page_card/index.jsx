@@ -645,8 +645,6 @@ const TourPageCard = () => {
     // postDataToMockAPI();
   }, []);
 
-
- 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -732,6 +730,7 @@ const TourPageCard = () => {
           <div className="tour_page_card_row">
             <div className="side" style={{ width: "80%" }}>
               <button
+                className="notranslate"
                 style={{
                   padding: "10px 20px",
                   backgroundColor: activeTab === "data" ? "#006742" : "#f0f0f0",
@@ -744,6 +743,7 @@ const TourPageCard = () => {
                 Tour
               </button>
               <button
+                className="notranslate"
                 style={{
                   padding: "10px 20px",
                   backgroundColor:
