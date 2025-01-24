@@ -112,7 +112,7 @@ function Header() {
                           toggleDropdown();
                           toggleMenu();
                         }}
-                        to="/destinations/chakhrisabz"
+                        to="/destinations/shakhrisabz"
                       >
                         Chakhrisabz
                       </Link>
@@ -136,7 +136,7 @@ function Header() {
                         }}
                         to="/destinations/ferghanavalley"
                       >
-                        Ferghana valley
+                        Ferghana Valley
                       </Link>
                     </li>
                     <li>
@@ -200,7 +200,7 @@ function Header() {
                     onClick={() => setMenuOpen(false)}
                     to="/destinations/thegreatsilkroad"
                   >
-                    The great silk road
+                    The Great Silk Road
                   </Link>
                 </li>
               </ul>
