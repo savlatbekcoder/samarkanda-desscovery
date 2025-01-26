@@ -145,9 +145,9 @@ function Header() {
                           toggleDropdown();
                           toggleMenu();
                         }}
-                        to="/destinations/karakalpakstan"
+                        to="/destinations/noukous"
                       >
-                        Karakalpakstan
+                        Noukous
                       </Link>
                     </li>
                     <li className="nonBordered">

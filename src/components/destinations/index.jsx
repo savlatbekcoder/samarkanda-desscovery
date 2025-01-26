@@ -340,7 +340,7 @@ The Hazrat-i Imam mosque, adjacent to the mausoleum of Djahanjir, takes its name
 The statue of Tamerlane is located behind Ak Saray. Its construction dates only in 2003.
       `,
     },
-    karakalpakstan: {
+    noukous: {
       image: kar,
       content: `
       <h1>
@@ -381,15 +381,22 @@ With the evaporation of water, these pesticides now cover the dried bed of the A
 <h1>
       Nourata
 </h1><br/><br/>
-      Nourata is a town in the province of Navoi, Uzbekistan. 
-      <br/><br/>
-      It is located 314 km south-west of Tashkent. Its population is estimated at around 35,000 inhabitants.
-      <br/><br/>
-Nourata is known for its water source, considered as sacred by the Muslims, and for the ruins of a fortress built by the army of Alexander the Great.
-The sacred source Tchachma is still today a place of pilgrimage for Muslims.
-<br/><br/>
- This place is famous because of the source that would have appeared when Ali, the son-in-law of the Prophet Muhammad, would have struck the ground with a stick. The complex includes a well, a 16th-century mosque, known as  Panjvakhta (five prayers), built during the reign of Abdullah Khan II and a fourteenth-century Tchil Ustun mosque which has been builtat the exact place of the source. The dome of the mosque, with its 16 meters diameter, is one of the largest in Central Asia. Fishes, considered as sacred, swim with in all the spring spreads.
-      `,
+    Nurata is a city in the Navoi region of Uzbekistan, the center of the Nurata district. It is located 55 km north of the regional center and the nearest railway station - Navoi.
+City status - since 1976 (before that - an urban-type settlement, even earlier - a village).
+In Nurata, there is a spring called Chashma, which is considered to be healing. The city is also an important religious center, actively visited by tourists. <br /><br />
+The emergence of Nurata is associated with Alexander the Great, who, according to legend, founded the Nur fortress in this place. Narshakhi describes Nurata as a Bukharan village called Nur. The village had a cathedral mosque and many rabats. It was famous for its sacred graves, where pilgrims flocked.
+Situated on the border between the cultural region and the steppe, the village must also have had important strategic significance. As a fortification, it is mentioned in the history of the struggle of the last Samanid, Muntasir, with his enemies. The descendants of Seljuk, leaving Jend, were accepted by the Samanids and settled in the vicinity of Nur.
+In 1220, Genghis Khan with the main forces passed from Otrar through the Kyzylkum desert to Nurata. Nurata was taken by the vanguard of the Mongolian army. In January 1220, the Mongolian vanguard with Toyir bakhodur arrived in Nur. The townspeople thought of them as caravans from afar.
+When Subutoy arrived in the city, he asked the people to leave. According to the order of Genghis Khan, the city was subject to taxation. The son of the local governor, Elkhoja, was sent to besiege Dabusiya with 60 local residents.
+Historical information describes a previously unknown road to Nurata, along which several Turkmen from the village of Zernuk led the Mongols. <br /><br /> Since then, the road has been called "khan's".
+Since the 16th century, Nurata was part of the Bukhara Khanate, was the administrative center of the Nurata bekstvo. The Khanband reservoir was built in the Nur Mountains during the reign of Abdullakhan II. In the 16th - 17th centuries, the Nurata Chashma complex was built.
+In 1756, Nurata was included in the Bukhara Emirate. After the murder of Muhammad Rahim Abulfayzkhan, the governor of Nurata Yadgar declared his independence. Muhammad Rahim captured Nurata and suppressed the uprising. After his death, an uprising began again in Nurata during the reign of Amir Doniolbek.
+In his era, Emir Nasrullakhan exiled Prime Minister Hakim Khan to Nurata after 1837. After the Russian troops invaded the Emirate of Bukhara, Siddiq Kenesariyev rebelled in Nurata. The son of the Emir of Bukhara, Abdulmalik, captured the governor, Abdulkarim, and took him to Khorezm. Nurata remained part of the Emirate of Bukhara.
+In 1872, von Kaufman's Russian troops marched to Khiva and arrived in Nurata, where he received the Khiva ambassador in the city, Bayani noted. At that time, Nurata was a stationary northwestern hill. According to the Russian-Bukharan treaty, Nura Castle was a territory under the control of Bukhara.
+Mirzo Salimbek, the author of a historical work and an official of Emir Abdulakhad, stated in his work that he was elected governor of Nurata for 4 years. According to Mirzo Salimbek, Nurata should be proud of its ancient tombs and saints. The author spoke about numerous monuments and landmarks. Subsequently, Mullo Sharifbi was appointed to this post for some time. Nurata had always been an area of ​​interest to the emir with its karakul product.
+In 1918, Olimjon appointed Rahmatullohoja, the son of Nizamiddin Urganji (?—1921). This man is considered the last ruler appointed by the emirs and khans in the history of Nurata. After the city was conquered by the Bolsheviks in 1920, Rahmatullohoja fled to Eastern Bukhara and then to Afghanistan, where he died in 1925.
+In the early 1920s, the anti-Soviet movement led by Mullo Abdul Qahhor expanded, and Nurata remained in the hands of the mujahideen until 1923. <br /><br /> Latif Devonbegi (1874—?) was also a famous Nurata mujahideen and a devotee of Abdul Qahhor.
+That same year, Mullo Abdul Kahhor's troops were driven out of the city. A revolutionary committee was created in Nurata, and such revolutionary committees as Sharof Barotov were included in it.`,
     },
     ferghanavalley: {
       image: fergana,
