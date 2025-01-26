@@ -145,7 +145,7 @@ function Header() {
                           toggleDropdown();
                           toggleMenu();
                         }}
-                        to="/destinations/Nukus"
+                        to="/destinations/nukus"
                       >
                         Nukus
                       </Link>
