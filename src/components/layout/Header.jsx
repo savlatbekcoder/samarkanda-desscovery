@@ -145,9 +145,9 @@ function Header() {
                           toggleDropdown();
                           toggleMenu();
                         }}
-                        to="/destinations/noukous"
+                        to="/destinations/Nukus"
                       >
-                        Noukous
+                        Nukus
                       </Link>
                     </li>
                     <li className="nonBordered">

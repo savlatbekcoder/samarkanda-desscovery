@@ -340,13 +340,13 @@ The Hazrat-i Imam mosque, adjacent to the mausoleum of Djahanjir, takes its name
 The statue of Tamerlane is located behind Ak Saray. Its construction dates only in 2003.
       `,
     },
-    noukous: {
+    nukus: {
       image: kar,
       content: `
       <h1>
-        Noukous
+        Nukus
       </h1>
-      Noukous is a city in Uzbekistan and the capital of autonomous Republic of Karakalpakistan. Noukous is located in western Uzbekistan, 810 km from Tashkent. It is close to the historical town of Kounya-Urgench, located in present-day Turkmenistan. Noukous is the ancient gateway to the Aral Sea, which original shoreline was 170 km to the north, now increasingly remote because of the gradual decline in the area of Aral sea.
+      Nukus is a city in Uzbekistan and the capital of autonomous Republic of Karakalpakistan. Nukus is located in western Uzbekistan, 810 km from Tashkent. It is close to the historical town of Kounya-Urgench, located in present-day Turkmenistan. Nukus is the ancient gateway to the Aral Sea, which original shoreline was 170 km to the north, now increasingly remote because of the gradual decline in the area of Aral sea.
 It is best known for its two main museums:
 • The Igor Savitsky Museum brings together a collection of modern paintings by Russian artists from the period 1918-1935, taken away from Moscow by the conservative Savitsky, which prevented their destruction by Stalin.
 • The Karakalpakistan State Museum presents the archaeological heritage of the region.
