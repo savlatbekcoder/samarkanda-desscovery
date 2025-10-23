@@ -8,7 +8,7 @@ import tour6 from "../../assests/bg/tour6.jpg";
 
 import TourCard from "../../components/tour_card";
 import Hero from "../../components/hero";
-import axios from "axioss";
+import axio from "axios";
 
 export default function Tours() {
   const [tours, setTours] = useState([]);
