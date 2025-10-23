@@ -8,7 +8,7 @@ import tour6 from "../../assests/bg/tour6.jpg";
 
 import TourCard from "../../components/tour_card";
 import Hero from "../../components/hero";
-import axio from "axios";
+import axios from "axios";
 
 export default function Tours() {
   const [tours, setTours] = useState([]);
@@ -19,7 +19,7 @@ export default function Tours() {
     const loadTourData = async () => {
       try {
         const response = await axios.get(
-          "https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/tours"
+          "https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/tour"
         );
         const data = response.data;
 
