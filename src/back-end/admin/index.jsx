@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NotFound from "../../components/404";
-import axios from "axios";
+
 
 import "../index.css";
 
