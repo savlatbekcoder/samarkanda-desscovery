@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NotFound from "../../components/404";
-
+import axios from "axios";
 
 import "../index.css";
 
@@ -69,7 +69,7 @@ const Admin = () => {
   const loadTourData = async () => {
     try {
       const response = await axios.get(
-        "https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/tours"
+        "https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/tour"
       );
       const data = response.data;
 
