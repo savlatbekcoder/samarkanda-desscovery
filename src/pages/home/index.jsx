@@ -29,7 +29,7 @@ export default function Home() {
     const loadTourData = async () => {
       try {
         const response = await axios.get(
-          "https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/tours"
+          "https://6763d1cb17ec5852caea1577.mockapi.io/api/v1/tour"
         );
         const data = response.data;
 
