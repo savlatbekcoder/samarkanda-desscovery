@@ -22,6 +22,89 @@ import TourCard from "../../components/tour_card";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+const FreeConsultation = () => {
+  return (
+    <section style={styles.section}>
+      <h2 style={styles.heading}>Get a Free Consultation</h2>
+
+      <form
+        action="https://submit.formspark.io/7W9dvLFxb" // ✅ Your Formspark hook URL
+        method="POST"
+        style={styles.form}
+      >
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          required
+          style={styles.input}
+        />
+
+        <input
+          type="tel"
+          name="phoneNumber"
+          placeholder="Your Phone Number"
+          required
+          style={styles.input}
+        />
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          required
+          style={styles.input}
+        />
+
+        <button type="submit" style={styles.button}>
+          Send Message
+        </button>
+      </form>
+    </section>
+  );
+};
+
+const styles = {
+  section: {
+    backgroundColor: "#0b0b0b",
+    color: "#fff",
+    textAlign: "center",
+    padding: "60px 20px",
+  },
+  heading: {
+    fontSize: "2rem",
+    marginBottom: "25px",
+  },
+  form: {
+    maxWidth: "500px",
+    margin: "0 auto",
+    display: "flex",
+    flexDirection: "column",
+    gap: "15px",
+  },
+  input: {
+    padding: "12px",
+    fontSize: "16px",
+    borderRadius: "5px",
+    border: "1px solid #333",
+    backgroundColor: "#1a1a1a",
+    color: "#fff",
+    outline: "none",
+  },
+  button: {
+    padding: "12px",
+    backgroundColor: "#007bff",
+    color: "#fff",
+    fontSize: "16px",
+    border: "none",
+    borderRadius: "5px",
+    cursor: "pointer",
+    transition: "0.3s",
+  },
+};
+
+export default FreeConsultation;
+
 export default function Home() {
   const [tours, setTours] = useState([]);
 
@@ -137,6 +220,7 @@ export default function Home() {
         </div>
       </div>
       <br />
+      <FreeConsultation />
       <br />
     </section>
   );
