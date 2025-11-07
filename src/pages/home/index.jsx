@@ -23,10 +23,20 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const FreeConsultation = () => {
+    const [success, setSuccess] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // prevent page reload
+    // Normally, you would send the form here using fetch/axios
+    // For now, just show success message
+    setSuccess(true);
+    // Optional: clear the form fields
+    e.target.reset();
+  }
   return (
     <section style={consultStyles.section}>
       <h2 style={consultStyles.heading}>Get a Free Consultation</h2>
-      <form style={consultStyles.form}>
+      <form onSubmit={handleSubmit} style={consultStyles.form}>
         <input type="text" name="name" placeholder="Name" required style={consultStyles.input} />
         <input type="tel" name="phoneNumber" placeholder="Phone Number" required style={consultStyles.input} />
         <input type="email" name="email" placeholder="Email" required style={consultStyles.input} />
