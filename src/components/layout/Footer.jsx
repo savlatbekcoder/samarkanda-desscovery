@@ -72,17 +72,15 @@ export default function Footer() {
             </a>
           </div>
           <div className="child">
-              <iframe
-            src="https://maps.app.goo.gl/2gRoFkv6eJgJetGK8?g_st=ipc" // Replace with your actual embed URL
-            width="100%"
-            height="300px"
-            frameBorder="0"
-            style={{ border: 0 }} // Inline styles are objects in React
-            allowFullScreen=""
-            aria-hidden="false"
-            tabIndex="0"
-            title="My Embedded Map" // Unique title is required
-          ></iframe>
+            <iframe
+  src="https://www.google.com/maps?q=41.3826929,69.3151987&hl=en&z=15&output=embed"
+  width="100%"
+  height="400"
+  style={{ border: 0 }}
+  allowFullScreen=""
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+></iframe>
           </div>
         </div>
       </div>
