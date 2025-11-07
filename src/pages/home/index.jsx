@@ -57,7 +57,7 @@ const MakePayment = () => {
         <input type="text" name="surname" placeholder="Surname" required style={paymentStyles.input} />
         <input type="number" name="amount" placeholder="Amount" required style={paymentStyles.input} />
         <input type="tel" name="phoneNumber" placeholder="Phone Number" required style={paymentStyles.input} />
-        <button type="submit" style={paymentStyles.button}>Pay Now</button>
+        <button type="button" style={paymentStyles.button}>Pay Now</button>
       </form>
     </section>
   );
