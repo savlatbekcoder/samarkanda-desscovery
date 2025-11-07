@@ -24,163 +24,54 @@ import axios from "axios";
 
 const FreeConsultation = () => {
   return (
-    <section style={styles.section}>
-      <h2 style={styles.heading}>Get a Free Consultation</h2>
-
-      <form
-        action="#" // ✅ Your Formspark hook URL
-        style={styles.form}
-      >
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          required
-          style={styles.input}
-        />
-
-        <input
-          type="tel"
-          name="phoneNumber"
-          placeholder="Your Phone Number"
-          required
-          style={styles.input}
-        />
-
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          required
-          style={styles.input}
-        />
-
-        <button type="submit" style={styles.button}>
-          Send Message
-        </button>
+    <section style={consultStyles.section}>
+      <h2 style={consultStyles.heading}>Get a Free Consultation</h2>
+      <form style={consultStyles.form}>
+        <input type="text" name="name" placeholder="Name" required style={consultStyles.input} />
+        <input type="tel" name="phoneNumber" placeholder="Phone Number" required style={consultStyles.input} />
+        <input type="email" name="email" placeholder="Email" required style={consultStyles.input} />
+        <button type="submit" style={consultStyles.button}>Send Message</button>
       </form>
     </section>
   );
 };
 
-const styles = {
-  section: {
-    backgroundColor: "#0b0b0b",
-    color: "#fff",
-    textAlign: "center",
-    padding: "60px 20px",
-  },
-  heading: {
-    fontSize: "2rem",
-    marginBottom: "25px",
-  },
-  form: {
-    maxWidth: "500px",
-    margin: "0 auto",
-    display: "flex",
-    flexDirection: "column",
-    gap: "15px",
-  },
-  input: {
-    padding: "12px",
-    fontSize: "16px",
-    borderRadius: "5px",
-    border: "1px solid #333",
-    backgroundColor: "#1a1a1a",
-    color: "#fff",
-    outline: "none",
-  },
-  button: {
-    padding: "12px",
-    backgroundColor: "#007bff",
-    color: "#fff",
-    fontSize: "16px",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-    transition: "0.3s",
-  },
-};
-
+// -------------------- Make Payment Form --------------------
 const MakePayment = () => {
   return (
-    <section style={styles.section}>
-      <h2 style={styles.heading}>Make a Payment</h2>
-
-      <form style={styles.form}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          required
-          style={styles.input}
-        />
-        <input
-          type="text"
-          name="surname"
-          placeholder="Surname"
-          required
-          style={styles.input}
-        />
-        <input
-          type="number"
-          name="amount"
-          placeholder="Amount"
-          required
-          style={styles.input}
-        />
-        <input
-          type="tel"
-          name="phoneNumber"
-          placeholder="Phone Number"
-          required
-          style={styles.input}
-        />
-
-        <button type="submit" style={styles.button}>
-          Pay Now
-        </button>
+    <section style={paymentStyles.section}>
+      <h2 style={paymentStyles.heading}>Make a Payment</h2>
+      <form style={paymentStyles.form}>
+        <input type="text" name="name" placeholder="Name" required style={paymentStyles.input} />
+        <input type="text" name="surname" placeholder="Surname" required style={paymentStyles.input} />
+        <input type="number" name="amount" placeholder="Amount" required style={paymentStyles.input} />
+        <input type="tel" name="phoneNumber" placeholder="Phone Number" required style={paymentStyles.input} />
+        <button type="submit" style={paymentStyles.button}>Pay Now</button>
       </form>
     </section>
   );
 };
 
-const styles = {
-  section: {
-    color: "#fff",
-    textAlign: "center",
-    padding: "60px 20px",
-  },
-  heading: {
-    fontSize: "2rem",
-    marginBottom: "25px",
-  },
-  form: {
-    maxWidth: "500px",
-    margin: "0 auto",
-    display: "flex",
-    flexDirection: "column",
-    gap: "15px",
-  },
-  input: {
-    padding: "12px",
-    fontSize: "16px",
-    borderRadius: "5px",
-    border: "1px solid #ccc",
-    outline: "none",
-    color: "#333",
-  },
-  button: {
-    padding: "12px",
-    backgroundColor: "#28a745",
-    color: "#fff",
-    fontSize: "16px",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-    transition: "0.3s",
-  },
+// -------------------- Styles --------------------
+
+// Dark background for Free Consultation
+const consultStyles = {
+  section: { backgroundColor: "#0b0b0b", color: "#fff", textAlign: "center", padding: "60px 20px" },
+  heading: { fontSize: "2rem", marginBottom: "25px" },
+  form: { maxWidth: "500px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "15px" },
+  input: { padding: "12px", fontSize: "16px", borderRadius: "5px", border: "1px solid #333", outline: "none", color: "#fff", backgroundColor: "#1a1a1a" },
+  button: { padding: "12px", backgroundColor: "#007bff", color: "#fff", fontSize: "16px", border: "none", borderRadius: "5px", cursor: "pointer" },
 };
+
+// White background for Make Payment
+const paymentStyles = {
+  section: { backgroundColor: "#fff", color: "#333", textAlign: "center", padding: "60px 20px" },
+  heading: { fontSize: "2rem", marginBottom: "25px" },
+  form: { maxWidth: "500px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "15px" },
+  input: { padding: "12px", fontSize: "16px", borderRadius: "5px", border: "1px solid #ccc", outline: "none", color: "#333" },
+  button: { padding: "12px", backgroundColor: "#28a745", color: "#fff", fontSize: "16px", border: "none", borderRadius: "5px", cursor: "pointer" },
+};
+
 
 export default function Home() {
   const [tours, setTours] = useState([]);
