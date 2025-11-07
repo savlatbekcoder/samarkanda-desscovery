@@ -103,8 +103,6 @@ const styles = {
   },
 };
 
-export FreeConsultation;
-
 export default function Home() {
   const [tours, setTours] = useState([]);
 
