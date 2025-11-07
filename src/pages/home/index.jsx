@@ -102,6 +102,86 @@ const styles = {
   },
 };
 
+const MakePayment = () => {
+  return (
+    <section style={styles.section}>
+      <h2 style={styles.heading}>Make a Payment</h2>
+
+      <form style={styles.form}>
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          required
+          style={styles.input}
+        />
+        <input
+          type="text"
+          name="surname"
+          placeholder="Surname"
+          required
+          style={styles.input}
+        />
+        <input
+          type="number"
+          name="amount"
+          placeholder="Amount"
+          required
+          style={styles.input}
+        />
+        <input
+          type="tel"
+          name="phoneNumber"
+          placeholder="Phone Number"
+          required
+          style={styles.input}
+        />
+
+        <button type="submit" style={styles.button}>
+          Pay Now
+        </button>
+      </form>
+    </section>
+  );
+};
+
+const styles = {
+  section: {
+    color: "#fff",
+    textAlign: "center",
+    padding: "60px 20px",
+  },
+  heading: {
+    fontSize: "2rem",
+    marginBottom: "25px",
+  },
+  form: {
+    maxWidth: "500px",
+    margin: "0 auto",
+    display: "flex",
+    flexDirection: "column",
+    gap: "15px",
+  },
+  input: {
+    padding: "12px",
+    fontSize: "16px",
+    borderRadius: "5px",
+    border: "1px solid #ccc",
+    outline: "none",
+    color: "#333",
+  },
+  button: {
+    padding: "12px",
+    backgroundColor: "#28a745",
+    color: "#fff",
+    fontSize: "16px",
+    border: "none",
+    borderRadius: "5px",
+    cursor: "pointer",
+    transition: "0.3s",
+  },
+};
+
 export default function Home() {
   const [tours, setTours] = useState([]);
 
@@ -218,6 +298,8 @@ export default function Home() {
       </div>
       <br />
       <FreeConsultation />
+      <br />
+      <MakePayment />
       <br />
     </section>
   );
