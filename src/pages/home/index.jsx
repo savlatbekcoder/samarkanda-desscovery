@@ -28,8 +28,7 @@ const FreeConsultation = () => {
       <h2 style={styles.heading}>Get a Free Consultation</h2>
 
       <form
-        action="https://submit.formspark.io/7W9dvLFxb" // ✅ Your Formspark hook URL
-        method="POST"
+        action="#" // ✅ Your Formspark hook URL
         style={styles.form}
       >
         <input
