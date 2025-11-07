@@ -32,6 +32,7 @@ const FreeConsultation = () => {
     setSuccess(true);
     // Optional: clear the form fields
     e.target.reset();
+      alert("Message sent successfully")
   }
   return (
     <section style={consultStyles.section}>
