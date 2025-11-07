@@ -29,7 +29,7 @@ export default function Footer() {
               silkroadtourisme@gmail.com
             </p>
             <p>
-              <i className="fa-solid fa-location-dot"></i> 2/17/27, Yunusabad, Tashkent 100093, Uzbekistan
+              <i className="fa-solid fa-location-dot"></i> Узбекистан, город Ташкент, Юнусабад Марказ-6, улица Насырова, 70
             </p>
            
           </div>
@@ -70,6 +70,19 @@ export default function Footer() {
             >
               <i className="social_links fa-brands fa-whatsapp"></i>
             </a>
+          </div>
+          <div className="child">
+              <iframe
+            src="https://maps.app.goo.gl/2gRoFkv6eJgJetGK8?g_st=ipc" // Replace with your actual embed URL
+            width="100%"
+            height="300px"
+            frameBorder="0"
+            style={{ border: 0 }} // Inline styles are objects in React
+            allowFullScreen=""
+            aria-hidden="false"
+            tabIndex="0"
+            title="My Embedded Map" // Unique title is required
+          ></iframe>
           </div>
         </div>
       </div>
