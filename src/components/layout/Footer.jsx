@@ -45,7 +45,7 @@ export default function Footer() {
             <a
               target="_blank"
               rel="noreferrer"
-              href="https://x.com/mansur_baz?s=11"
+              href="https://x.com/sam_voyages"
             >
               <i className="social_links fa-brands fa-twitter"></i>
             </a>
