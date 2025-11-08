@@ -59,7 +59,7 @@ export default function Footer() {
             <a
               target="_blank"
               rel="noreferrer"
-              href="https://t.me/travels_uzbekistan"
+              href="https://t.me/samarcanda_discovery"
             >
               <i className="social_links fa-brands fa-telegram"></i>
             </a>
