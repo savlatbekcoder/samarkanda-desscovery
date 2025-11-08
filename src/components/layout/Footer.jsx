@@ -66,7 +66,7 @@ export default function Footer() {
             <a
               target="_blank"
               rel="noreferrer"
-              href="https://wa.me/998977541680"
+              href="https://wa.me/998909430980"
             >
               <i className="social_links fa-brands fa-whatsapp"></i>
             </a>
