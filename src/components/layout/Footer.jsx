@@ -29,7 +29,7 @@ export default function Footer() {
               silkroadtourisme@gmail.com
             </p>
             <p>
-              <i className="fa-solid fa-location-dot"></i> Uzbekistan, Tashkent Yunusabad, Minor MFY, Markaz-6, 70
+              <i className="fa-solid fa-location-dot"></i> Uzbekistan, Tashkent Yunusabad, Minor-MFY, Markaz-6, 70
             </p>
            
           </div>
