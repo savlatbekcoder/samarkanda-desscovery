@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+
 export default function TourCard({ price, image, name, id }) {
   const navigate = useNavigate();
   return (
