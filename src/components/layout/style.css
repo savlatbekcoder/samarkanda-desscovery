@@ -228,6 +228,7 @@ header .navigation {
   img{
   object-fit: cover;
     width: 150px;
+    height: 230px;
   }
   p {
     margin-top: 10px;
