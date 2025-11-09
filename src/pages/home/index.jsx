@@ -37,7 +37,8 @@ const FreeConsultation = () => {
   return (
     <section style={consultStyles.section}>
       <h2 style={consultStyles.heading}>Get a Free Consultation</h2>
-      <form onSubmit={handleSubmit} style={consultStyles.form}>
+      <form action="https://www.form-to-email.com/api/s/8o41peDefzyQ"
+  method="POST" style={consultStyles.form}>
         <input type="text" name="name" placeholder="Name" required style={consultStyles.input} />
         <input type="tel" name="phoneNumber" placeholder="Phone Number" required style={consultStyles.input} />
         <input type="email" name="email" placeholder="Email" required style={consultStyles.input} />
