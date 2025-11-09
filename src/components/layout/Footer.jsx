@@ -1,5 +1,5 @@
 import React from "react";
-import image from "../../assests/icon/petit-fute.jpg";
+import image from "../../assests/icon/IMG_0188.jpeg";
 import "./style.css";
 
 export default function Footer() {
