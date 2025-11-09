@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import image from "../../assests/bg/home-bg.jpg";
+import image from "../../assests/bg/IMG_0187.jpeg";
 import taj from "../../assests/bg/taj.jpg";
 import kr from "../../assests/bg/kr.jpg";
 import tur from "../../assests/bg/tur.jpg";
