@@ -40,7 +40,7 @@ const FreeConsultation = () => {
       <form action="https://www.form-to-email.com/api/s/8o41peDefzyQ"
   method="POST" style={consultStyles.form}>
         <input type="text" name="name" placeholder="Name" required style={consultStyles.input} />
-        <input type="tel" name="phoneNumber" placeholder="Phone Number" required style={consultStyles.input} />
+        <input type="tel" name="message" placeholder="Phone Number" required style={consultStyles.input} />
         <input type="email" name="email" placeholder="Email" required style={consultStyles.input} />
         <button type="submit" style={consultStyles.button}>Send Message</button>
       </form>
