@@ -225,6 +225,10 @@ header .navigation {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+  img{
+  object-fit: cover;
+    width: 150px;
+  }
   p {
     margin-top: 10px;
   }
